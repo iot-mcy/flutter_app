@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_app/Test2.dart';
+import 'package:flutter_app/Test3.dart';
+import 'package:flutter_app/test1.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Test3());
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +19,8 @@ class MyApp extends StatelessWidget {
             title: Text('Welcome to Flutter'),
           ),
           body: Center(
-            child: RandomWords(),
+//            child: RandomWords(),
+              child: Image.network("https://cdn.jsdelivr.net/gh/flutterchina/website@1.0/images/flutter-mark-square-100.png")
           ),
         ));
   }
