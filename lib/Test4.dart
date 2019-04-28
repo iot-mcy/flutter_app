@@ -83,6 +83,7 @@ class NewRoute extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           new Text("This is new route"),
+          new Image.asset("assets/images/image02.png"),
           new FlatButton(
               onPressed: () {
                 Navigator.pop(context);
