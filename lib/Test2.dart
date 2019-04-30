@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Test2 extends StatelessWidget {
+  const Test2({Key key}) : super(key: key);
+  static const String routeName = "Test2";
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

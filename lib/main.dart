@@ -3,10 +3,11 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter_app/Test2.dart';
 import 'package:flutter_app/Test3.dart';
 import 'package:flutter_app/Test4.dart';
+import 'package:flutter_app/app.dart';
 import 'package:flutter_app/test1.dart';
 
 void main() {
-  runApp(Test4());
+  runApp(GalleryApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,14 +16,17 @@ class MyApp extends StatelessWidget {
 //    final wordPair = WordPair.random();
     return MaterialApp(
         title: 'Flutter Demo',
+        theme: new ThemeData(
+          primarySwatch: Colors.red,
+        ),
         home: Scaffold(
           appBar: AppBar(
             title: Text('Welcome to Flutter'),
           ),
           body: Center(
 //            child: RandomWords(),
-              child: Image.network("https://cdn.jsdelivr.net/gh/flutterchina/website@1.0/images/flutter-mark-square-100.png")
-          ),
+              child: Image.network(
+                  "https://cdn.jsdelivr.net/gh/flutterchina/website@1.0/images/flutter-mark-square-100.png")),
         ));
   }
 }
