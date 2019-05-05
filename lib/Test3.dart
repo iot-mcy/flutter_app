@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 
 class Test3 extends StatelessWidget {
+  const Test3({Key key}) : super(key: key);
+  static const String routeName = "/Test3";
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return new MaterialApp(
-      theme: new ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: new SampleAppPage(),
-    );
+    return new SampleAppPage();
   }
-
 }
 
 class SampleAppPage extends StatefulWidget {
@@ -20,11 +17,16 @@ class SampleAppPage extends StatefulWidget {
     // TODO: implement createState
     return new _SampleAppPageState();
   }
-
 }
 
 class _SampleAppPageState extends State<SampleAppPage> {
   bool toggle = true;
+
+  @override
+  void initState() {
+    super.initState();
+    print("initState");
+  }
 
   void _toggle() {
     setState(() {
@@ -45,6 +47,7 @@ class _SampleAppPageState extends State<SampleAppPage> {
 
   @override
   Widget build(BuildContext context) {
+    print("build");
     // TODO: implement build
     return new Scaffold(
       appBar: new AppBar(
@@ -60,4 +63,26 @@ class _SampleAppPageState extends State<SampleAppPage> {
     );
   }
 
+  @override
+  void didUpdateWidget(SampleAppPage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+    print("deactivate");
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print("dispose");
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print("didChangeDependencies");
+  }
 }

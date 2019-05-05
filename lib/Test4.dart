@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 
 class Test4 extends StatelessWidget {
+
+  const Test4({Key key}) : super(key: key);
+  static const String routeName = "/Test4";
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return new MaterialApp(
-      theme: new ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      //注册路由表
-      routes: {
-        "new_page": (context) => NewRoute(),
-      },
-      home: new MyHomePage(),
-    );
+    return new MyHomePage();
   }
 }
 
@@ -52,11 +47,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             new FlatButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, "new_page");
-//                  Navigator.push(context,
-//                      new MaterialPageRoute(builder: (context) {
-//                        return new NewRoute();
-//                      }));
+//                  Navigator.pushNamed(context, "new_page");
+                  Navigator.push(context,
+                      new MaterialPageRoute(builder: (context) {
+                        return new NewRoute();
+                      }));
                 },
                 child: new Text("open new route")),
           ],

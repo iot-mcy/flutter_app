@@ -2,8 +2,16 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Test2.dart';
+import 'package:flutter_app/Test3.dart';
+import 'package:flutter_app/Test4.dart';
+import 'package:flutter_app/Test5.dart';
 import 'package:flutter_app/demos.dart';
 import 'package:flutter_app/test1.dart';
+import 'package:flutter_app/widget/Button.dart';
+import 'package:flutter_app/widget/ImageWidget.dart';
+import 'package:flutter_app/widget/SwitchAndCheckBoxTestRoute.dart';
+import 'package:flutter_app/widget/TextFieldWidget.dart';
+import 'package:flutter_app/widget/TextWidget.dart';
 
 class GalleryApp extends StatelessWidget {
   const GalleryApp({Key key}) : super(key: key);
@@ -55,7 +63,50 @@ class Home extends StatelessWidget {
               onPressed: () {
 //                Navigator.pushNamed(context, Test2.routeName);
                 _onNavigator(context, Test2.routeName);
-              })
+              }),
+          new MaterialButton(
+              child: new Text("Test3"),
+              onPressed: () {
+//                Navigator.pushNamed(context, Test2.routeName);
+                _onNavigator(context, Test3.routeName);
+              }),
+          new MaterialButton(
+              child: new Text("Test4"),
+              onPressed: () {
+//                Navigator.pushNamed(context, Test2.routeName);
+                _onNavigator(context, Test4.routeName);
+              }),
+          new MaterialButton(
+              child: new Text("Test5"),
+              onPressed: () {
+//                Navigator.pushNamed(context, Test2.routeName);
+                _onNavigator(context, ParentWidget.routeName);
+              }),
+          new MaterialButton(
+              child: new Text("TextWidget"),
+              onPressed: () {
+                _onNavigator(context, TextWidget.routeName);
+              }),
+          new MaterialButton(
+              child: new Text("ButtonWidget"),
+              onPressed: () {
+                _onNavigator(context, ButtonWidget.routeName);
+              }),
+          new MaterialButton(
+              child: new Text("ImageWidget"),
+              onPressed: () {
+                _onNavigator(context, ImageWidget.routeName);
+              }),
+          new MaterialButton(
+              child: new Text("SwitchAndCheckBoxTestRoute"),
+              onPressed: () {
+                _onNavigator(context, SwitchAndCheckBoxTestRoute.routeName);
+              }),
+          new MaterialButton(
+              child: new Text("TextFieldWidget"),
+              onPressed: () {
+                _onNavigator(context, TextFieldWidget.routeName);
+              }),
         ],
       ),
     );
