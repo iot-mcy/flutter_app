@@ -2,17 +2,12 @@ import 'package:flutter/material.dart';
 
 class Test2 extends StatelessWidget {
   const Test2({Key key}) : super(key: key);
-  static const String routeName = "Test2";
+  static const String routeName = "/Test2";
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return new MaterialApp(
-      theme: new ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      home: new Sample(),
-    );
+    return new Sample();
   }
 }
 
@@ -27,7 +22,7 @@ class Sample extends StatelessWidget {
       body: new Center(
         child: new MaterialButton(
           onPressed: () {
-            //todo
+            Navigator.pop(context);
           },
           child: new Text('Hello'),
           padding: new EdgeInsets.only(left: 10, right: 10),

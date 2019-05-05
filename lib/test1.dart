@@ -2,21 +2,12 @@ import 'package:flutter/material.dart';
 
 class Test1 extends StatelessWidget {
   const Test1({Key key}) : super(key: key);
-  static const String routeName = "Test1";
+  static const String routeName = "/Test1";
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return new MaterialApp(
-      theme: new ThemeData(
-//        primarySwatch: Colors.blue,
-        primaryColorLight: Colors.white,
-        primaryColorDark: Colors.white,
-        primaryColor: Colors.white,
-        accentColor: Colors.white,
-      ),
-      home: new SampleAppPage(),
-    );
+    return new SampleAppPage();
   }
 }
 
@@ -41,6 +32,14 @@ class _SampleAppPageState extends State<SampleAppPage> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("Test1"),
+        leading: Builder(builder: (BuildContext context) {
+          return IconButton(
+            icon: const Icon(Icons.close),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          );
+        }),
       ),
       body: new Center(
         child: new Text(textToShow),

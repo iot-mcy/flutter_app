@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Test2.dart';
 import 'package:flutter_app/demos.dart';
@@ -45,15 +47,25 @@ class Home extends StatelessWidget {
           new MaterialButton(
               child: new Text("Test1"),
               onPressed: () {
-                Navigator.pushNamed(context, Test1.routeName);
+//                Navigator.pushNamed(context, Test1.routeName);
+                _onNavigator(context, Test1.routeName);
               }),
           new MaterialButton(
               child: new Text("Test2"),
               onPressed: () {
-                Navigator.pushNamed(context, Test2.routeName);
+//                Navigator.pushNamed(context, Test2.routeName);
+                _onNavigator(context, Test2.routeName);
               })
         ],
       ),
     );
   }
+}
+
+void _onNavigator(BuildContext context, String routeName) {
+  Timeline.instantSync('Start Transition', arguments: <String, String>{
+    'from': '/',
+    'to': routeName,
+  });
+  Navigator.pushNamed(context, routeName);
 }
