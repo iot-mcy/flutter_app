@@ -47,69 +47,70 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text("主页"),
-      ),
-      body: Column(
-        children: <Widget>[
-          new MaterialButton(
-              child: new Text("Test1"),
-              onPressed: () {
+        appBar: new AppBar(
+          title: new Text("主页"),
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              new MaterialButton(
+                  child: new Text("Test1"),
+                  onPressed: () {
 //                Navigator.pushNamed(context, Test1.routeName);
-                _onNavigator(context, Test1.routeName);
-              }),
-          new MaterialButton(
-              child: new Text("Test2"),
-              onPressed: () {
+                    _onNavigator(context, Test1.routeName);
+                  }),
+              new MaterialButton(
+                  child: new Text("Test2"),
+                  onPressed: () {
 //                Navigator.pushNamed(context, Test2.routeName);
-                _onNavigator(context, Test2.routeName);
-              }),
-          new MaterialButton(
-              child: new Text("Test3"),
-              onPressed: () {
+                    _onNavigator(context, Test2.routeName);
+                  }),
+              new MaterialButton(
+                  child: new Text("Test3"),
+                  onPressed: () {
 //                Navigator.pushNamed(context, Test2.routeName);
-                _onNavigator(context, Test3.routeName);
-              }),
-          new MaterialButton(
-              child: new Text("Test4"),
-              onPressed: () {
+                    _onNavigator(context, Test3.routeName);
+                  }),
+              new MaterialButton(
+                  child: new Text("Test4"),
+                  onPressed: () {
 //                Navigator.pushNamed(context, Test2.routeName);
-                _onNavigator(context, Test4.routeName);
-              }),
-          new MaterialButton(
-              child: new Text("Test5"),
-              onPressed: () {
+                    _onNavigator(context, Test4.routeName);
+                  }),
+              new MaterialButton(
+                  child: new Text("Test5"),
+                  onPressed: () {
 //                Navigator.pushNamed(context, Test2.routeName);
-                _onNavigator(context, ParentWidget.routeName);
-              }),
-          new MaterialButton(
-              child: new Text("TextWidget"),
-              onPressed: () {
-                _onNavigator(context, TextWidget.routeName);
-              }),
-          new MaterialButton(
-              child: new Text("ButtonWidget"),
-              onPressed: () {
-                _onNavigator(context, ButtonWidget.routeName);
-              }),
-          new MaterialButton(
-              child: new Text("ImageWidget"),
-              onPressed: () {
-                _onNavigator(context, ImageWidget.routeName);
-              }),
-          new MaterialButton(
-              child: new Text("SwitchAndCheckBoxTestRoute"),
-              onPressed: () {
-                _onNavigator(context, SwitchAndCheckBoxTestRoute.routeName);
-              }),
-          new MaterialButton(
-              child: new Text("TextFieldWidget"),
-              onPressed: () {
-                _onNavigator(context, TextFieldWidget.routeName);
-              }),
-        ],
-      ),
-    );
+                    _onNavigator(context, ParentWidget.routeName);
+                  }),
+              new MaterialButton(
+                  child: new Text("TextWidget"),
+                  onPressed: () {
+                    _onNavigator(context, TextWidget.routeName);
+                  }),
+              new MaterialButton(
+                  child: new Text("ButtonWidget"),
+                  onPressed: () {
+                    _onNavigator(context, ButtonWidget.routeName);
+                  }),
+              new MaterialButton(
+                  child: new Text("ImageWidget"),
+                  onPressed: () {
+                    _onNavigator(context, ImageWidget.routeName);
+                  }),
+              new MaterialButton(
+                  child: new Text("SwitchAndCheckBoxTestRoute"),
+                  onPressed: () {
+                    _onNavigator(context, SwitchAndCheckBoxTestRoute.routeName);
+                  }),
+              new MaterialButton(
+                  child: new Text("TextFieldWidget"),
+                  onPressed: () {
+                    _onNavigator(context, TextFieldWidget.routeName);
+                  }),
+            ],
+          ),
+        ));
   }
 }
 
