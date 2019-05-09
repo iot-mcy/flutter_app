@@ -8,10 +8,14 @@ import 'package:flutter_app/Test5.dart';
 import 'package:flutter_app/demos.dart';
 import 'package:flutter_app/test1.dart';
 import 'package:flutter_app/widget/Button.dart';
+import 'package:flutter_app/widget/FlexLayoutTestRoute.dart';
 import 'package:flutter_app/widget/ImageWidget.dart';
 import 'package:flutter_app/widget/SwitchAndCheckBoxTestRoute.dart';
 import 'package:flutter_app/widget/TextFieldWidget.dart';
 import 'package:flutter_app/widget/TextWidget.dart';
+import 'package:flutter_app/widget/WrapLayout.dart';
+
+import 'RowLayout.dart';
 
 class GalleryApp extends StatelessWidget {
   const GalleryApp({Key key}) : super(key: key);
@@ -52,61 +56,111 @@ class Home extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            verticalDirection: VerticalDirection.down,
             children: <Widget>[
-              new FlatButton(
-                  child: new Text("Test1"),
-                  onPressed: () {
+              Row(
+                children: <Widget>[
+                  Expanded(
+                      child: new FlatButton(
+                          child: new Text("Test1"),
+                          color: Colors.blue,
+                          textColor: Colors.white,
+                          onPressed: () {
 //                Navigator.pushNamed(context, Test1.routeName);
-                    _onNavigator(context, Test1.routeName);
-                  }),
-              new  FlatButton(
+                            _onNavigator(context, Test1.routeName);
+                          }))
+                ],
+              ),
+              new FlatButton(
                   child: new Text("Test2"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
                   onPressed: () {
 //                Navigator.pushNamed(context, Test2.routeName);
                     _onNavigator(context, Test2.routeName);
                   }),
-              new  FlatButton(
+              new FlatButton(
                   child: new Text("Test3"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
                   onPressed: () {
 //                Navigator.pushNamed(context, Test2.routeName);
                     _onNavigator(context, Test3.routeName);
                   }),
-              new  FlatButton(
+              new FlatButton(
                   child: new Text("Test4"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
                   onPressed: () {
 //                Navigator.pushNamed(context, Test2.routeName);
                     _onNavigator(context, Test4.routeName);
                   }),
-              new  FlatButton(
+              new FlatButton(
                   child: new Text("Test5"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
                   onPressed: () {
 //                Navigator.pushNamed(context, Test2.routeName);
                     _onNavigator(context, ParentWidget.routeName);
                   }),
-              new  FlatButton(
+              new FlatButton(
                   child: new Text("TextWidget"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
                   onPressed: () {
                     _onNavigator(context, TextWidget.routeName);
                   }),
-              new  FlatButton(
+              new FlatButton(
                   child: new Text("ButtonWidget"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
                   onPressed: () {
                     _onNavigator(context, ButtonWidget.routeName);
                   }),
-              new  FlatButton(
+              new FlatButton(
                   child: new Text("ImageWidget"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
                   onPressed: () {
                     _onNavigator(context, ImageWidget.routeName);
                   }),
-              new  FlatButton(
+              new FlatButton(
                   child: new Text("SwitchAndCheckBoxTestRoute"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
                   onPressed: () {
                     _onNavigator(context, SwitchAndCheckBoxTestRoute.routeName);
                   }),
-              new  FlatButton(
+              new FlatButton(
                   child: new Text("TextFieldWidget"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
                   onPressed: () {
                     _onNavigator(context, TextFieldWidget.routeName);
+                  }),
+              new FlatButton(
+                  child: new Text("RowLayout"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, RowLayout.routeName);
+                  }),
+              new FlatButton(
+                  child: new Text("FlexLayoutTestRoute"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, FlexLayoutTestRoute.routeName);
+                  }),
+              new FlatButton(
+                  child: new Text("WrapLayout"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, WrapLayout.routeName);
                   }),
             ],
           ),

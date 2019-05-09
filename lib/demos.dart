@@ -5,10 +5,14 @@ import 'package:flutter_app/Test4.dart';
 import 'package:flutter_app/Test5.dart';
 import 'package:flutter_app/test1.dart';
 import 'package:flutter_app/widget/Button.dart';
+import 'package:flutter_app/widget/FlexLayoutTestRoute.dart';
 import 'package:flutter_app/widget/ImageWidget.dart';
 import 'package:flutter_app/widget/SwitchAndCheckBoxTestRoute.dart';
 import 'package:flutter_app/widget/TextFieldWidget.dart';
 import 'package:flutter_app/widget/TextWidget.dart';
+import 'package:flutter_app/widget/WrapLayout.dart';
+
+import 'RowLayout.dart';
 
 class GalleryDemo {
   const GalleryDemo({
@@ -66,11 +70,24 @@ List<GalleryDemo> _buildGalleryDemos() {
     GalleryDemo(
         title: "SwitchAndCheckBoxTestRoute",
         routeName: SwitchAndCheckBoxTestRoute.routeName,
-        builderRoute: (BuildContext context) => const SwitchAndCheckBoxTestRoute()),
+        builderRoute: (BuildContext context) =>
+            const SwitchAndCheckBoxTestRoute()),
     GalleryDemo(
         title: "TextFieldWidget",
         routeName: TextFieldWidget.routeName,
         builderRoute: (BuildContext context) => const TextFieldWidget()),
+    GalleryDemo(
+        title: "RowLayout",
+        routeName: RowLayout.routeName,
+        builderRoute: (BuildContext context) => const RowLayout()),
+    GalleryDemo(
+        title: "FlexLayoutTestRoute",
+        routeName: FlexLayoutTestRoute.routeName,
+        builderRoute: (BuildContext context) => const FlexLayoutTestRoute()),
+    GalleryDemo(
+        title: "WrapLayout",
+        routeName: WrapLayout.routeName,
+        builderRoute: (BuildContext context) => const WrapLayout()),
   ];
   return galleryDemos;
 }
