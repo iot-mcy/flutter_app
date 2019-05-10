@@ -5,13 +5,17 @@ import 'package:flutter_app/Test4.dart';
 import 'package:flutter_app/Test5.dart';
 import 'package:flutter_app/test1.dart';
 import 'package:flutter_app/widget/Button.dart';
+import 'package:flutter_app/widget/ConstrainedBoxAndSizedBox.dart';
 import 'package:flutter_app/widget/FlexLayoutTestRoute.dart';
 import 'package:flutter_app/widget/ImageWidget.dart';
+import 'package:flutter_app/widget/StackLayout.dart';
 import 'package:flutter_app/widget/SwitchAndCheckBoxTestRoute.dart';
 import 'package:flutter_app/widget/TextFieldWidget.dart';
 import 'package:flutter_app/widget/TextWidget.dart';
+import 'package:flutter_app/widget/TransformWidget.dart';
 import 'package:flutter_app/widget/WrapLayout.dart';
 
+import 'PaddingTestRoute.dart';
 import 'RowLayout.dart';
 
 class GalleryDemo {
@@ -88,6 +92,24 @@ List<GalleryDemo> _buildGalleryDemos() {
         title: "WrapLayout",
         routeName: WrapLayout.routeName,
         builderRoute: (BuildContext context) => const WrapLayout()),
+    GalleryDemo(
+        title: "StackLayout",
+        routeName: StackLayout.routeName,
+        builderRoute: (BuildContext context) => const StackLayout()),
+    GalleryDemo(
+        title: "PaddingTestRoute",
+        routeName: PaddingTestRoute.routeName,
+        builderRoute: (BuildContext context) => const PaddingTestRoute()),
+    GalleryDemo(
+        title: "ConstrainedBoxAndSizedBox",
+        routeName: ConstrainedBoxAndSizedBox.routeName,
+        builderRoute: (BuildContext context) =>
+            const ConstrainedBoxAndSizedBox()),
+    GalleryDemo(
+        title: "TransformWidget",
+        routeName: TransformWidget.routeName,
+        builderRoute: (BuildContext context) =>
+        const TransformWidget()),
   ];
   return galleryDemos;
 }

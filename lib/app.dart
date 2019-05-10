@@ -8,13 +8,17 @@ import 'package:flutter_app/Test5.dart';
 import 'package:flutter_app/demos.dart';
 import 'package:flutter_app/test1.dart';
 import 'package:flutter_app/widget/Button.dart';
+import 'package:flutter_app/widget/ConstrainedBoxAndSizedBox.dart';
 import 'package:flutter_app/widget/FlexLayoutTestRoute.dart';
 import 'package:flutter_app/widget/ImageWidget.dart';
+import 'package:flutter_app/widget/StackLayout.dart';
 import 'package:flutter_app/widget/SwitchAndCheckBoxTestRoute.dart';
 import 'package:flutter_app/widget/TextFieldWidget.dart';
 import 'package:flutter_app/widget/TextWidget.dart';
+import 'package:flutter_app/widget/TransformWidget.dart';
 import 'package:flutter_app/widget/WrapLayout.dart';
 
+import 'PaddingTestRoute.dart';
 import 'RowLayout.dart';
 
 class GalleryApp extends StatelessWidget {
@@ -161,6 +165,34 @@ class Home extends StatelessWidget {
                   textColor: Colors.white,
                   onPressed: () {
                     _onNavigator(context, WrapLayout.routeName);
+                  }),
+              new FlatButton(
+                  child: new Text("StackLayout"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, StackLayout.routeName);
+                  }),
+              new FlatButton(
+                  child: new Text("PaddingTestRoute"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, PaddingTestRoute.routeName);
+                  }),
+              new FlatButton(
+                  child: new Text("ConstrainedBoxAndSizedBox"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, ConstrainedBoxAndSizedBox.routeName);
+                  }),
+              new FlatButton(
+                  child: new Text("TransformWidget"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, TransformWidget.routeName);
                   }),
             ],
           ),
