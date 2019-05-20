@@ -6,8 +6,10 @@ import 'package:flutter_app/Test5.dart';
 import 'package:flutter_app/test1.dart';
 import 'package:flutter_app/widget/Button.dart';
 import 'package:flutter_app/widget/ConstrainedBoxAndSizedBox.dart';
+import 'package:flutter_app/widget/ContainerWidget.dart';
 import 'package:flutter_app/widget/FlexLayoutTestRoute.dart';
 import 'package:flutter_app/widget/ImageWidget.dart';
+import 'package:flutter_app/widget/ListViewRoute.dart';
 import 'package:flutter_app/widget/StackLayout.dart';
 import 'package:flutter_app/widget/SwitchAndCheckBoxTestRoute.dart';
 import 'package:flutter_app/widget/TextFieldWidget.dart';
@@ -17,6 +19,7 @@ import 'package:flutter_app/widget/WrapLayout.dart';
 
 import 'PaddingTestRoute.dart';
 import 'RowLayout.dart';
+import 'ScaffoldRoute.dart';
 
 class GalleryDemo {
   const GalleryDemo({
@@ -110,6 +113,21 @@ List<GalleryDemo> _buildGalleryDemos() {
         routeName: TransformWidget.routeName,
         builderRoute: (BuildContext context) =>
         const TransformWidget()),
+    GalleryDemo(
+        title: "ContainerWidget",
+        routeName: ContainerWidget.routeName,
+        builderRoute: (BuildContext context) =>
+        const ContainerWidget()),
+    GalleryDemo(
+        title: "ScaffoldRoute",
+        routeName: ScaffoldRoute.routeName,
+        builderRoute: (BuildContext context) =>
+        const ScaffoldRoute()),
+    GalleryDemo(
+        title: "ListViewRoute",
+        routeName: ListViewRoute.routeName,
+        builderRoute: (BuildContext context) =>
+        const ListViewRoute()),
   ];
   return galleryDemos;
 }

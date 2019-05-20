@@ -9,8 +9,10 @@ import 'package:flutter_app/demos.dart';
 import 'package:flutter_app/test1.dart';
 import 'package:flutter_app/widget/Button.dart';
 import 'package:flutter_app/widget/ConstrainedBoxAndSizedBox.dart';
+import 'package:flutter_app/widget/ContainerWidget.dart';
 import 'package:flutter_app/widget/FlexLayoutTestRoute.dart';
 import 'package:flutter_app/widget/ImageWidget.dart';
+import 'package:flutter_app/widget/ListViewRoute.dart';
 import 'package:flutter_app/widget/StackLayout.dart';
 import 'package:flutter_app/widget/SwitchAndCheckBoxTestRoute.dart';
 import 'package:flutter_app/widget/TextFieldWidget.dart';
@@ -20,6 +22,7 @@ import 'package:flutter_app/widget/WrapLayout.dart';
 
 import 'PaddingTestRoute.dart';
 import 'RowLayout.dart';
+import 'ScaffoldRoute.dart';
 
 class GalleryApp extends StatelessWidget {
   const GalleryApp({Key key}) : super(key: key);
@@ -193,6 +196,27 @@ class Home extends StatelessWidget {
                   textColor: Colors.white,
                   onPressed: () {
                     _onNavigator(context, TransformWidget.routeName);
+                  }),
+              new FlatButton(
+                  child: new Text("ContainerWidget"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, ContainerWidget.routeName);
+                  }),
+              new FlatButton(
+                  child: new Text("ScaffoldRoute"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, ScaffoldRoute.routeName);
+                  }),
+              new FlatButton(
+                  child: new Text("ListViewRoute"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, ListViewRoute.routeName);
                   }),
             ],
           ),
