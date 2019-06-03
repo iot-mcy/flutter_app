@@ -10,6 +10,7 @@ import 'package:flutter_app/widget/ContainerWidget.dart';
 import 'package:flutter_app/widget/FlexLayoutTestRoute.dart';
 import 'package:flutter_app/widget/ImageWidget.dart';
 import 'package:flutter_app/widget/ListViewRoute.dart';
+import 'package:flutter_app/widget/ListViewRoute1.dart';
 import 'package:flutter_app/widget/StackLayout.dart';
 import 'package:flutter_app/widget/SwitchAndCheckBoxTestRoute.dart';
 import 'package:flutter_app/widget/TextFieldWidget.dart';
@@ -128,6 +129,11 @@ List<GalleryDemo> _buildGalleryDemos() {
         routeName: ListViewRoute.routeName,
         builderRoute: (BuildContext context) =>
         const ListViewRoute()),
+    GalleryDemo(
+        title: "ListViewRoute1",
+        routeName: ListViewRoute1.routeName,
+        builderRoute: (BuildContext context) =>
+        const ListViewRoute1()),
   ];
   return galleryDemos;
 }

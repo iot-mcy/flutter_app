@@ -13,6 +13,7 @@ import 'package:flutter_app/widget/ContainerWidget.dart';
 import 'package:flutter_app/widget/FlexLayoutTestRoute.dart';
 import 'package:flutter_app/widget/ImageWidget.dart';
 import 'package:flutter_app/widget/ListViewRoute.dart';
+import 'package:flutter_app/widget/ListViewRoute1.dart';
 import 'package:flutter_app/widget/StackLayout.dart';
 import 'package:flutter_app/widget/SwitchAndCheckBoxTestRoute.dart';
 import 'package:flutter_app/widget/TextFieldWidget.dart';
@@ -217,6 +218,13 @@ class Home extends StatelessWidget {
                   textColor: Colors.white,
                   onPressed: () {
                     _onNavigator(context, ListViewRoute.routeName);
+                  }),
+              new FlatButton(
+                  child: new Text("ListViewRoute1"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, ListViewRoute1.routeName);
                   }),
             ],
           ),
