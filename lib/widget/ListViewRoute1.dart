@@ -20,13 +20,16 @@ class _ListViewRoute1 extends State<ListViewRoute1> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        title: Text("ListViewRoute1"),
-      ),
-      body: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: listComp.ListRefresh(getIndexListData, getItemWidget, null)),
-    );
+        appBar: AppBar(
+          title: Text("ListViewRoute1"),
+        ),
+        body: Column(
+          children: <Widget>[
+            Expanded(
+                child:
+                    listComp.ListRefresh(getIndexListData, getItemWidget, null))
+          ],
+        ));
   }
 }
 
@@ -38,8 +41,8 @@ Future<Map> getIndexListData([Map<String, dynamic> params]) async {
   for (int index = pageIndex == 0 ? 0 : 7;
       index < (pageIndex == 0 ? 7 : 10);
       index++) {
-    ItemData itemData = new ItemData("", 'subtitle $index', 'author $index',
-        'publishDate $index', 'readDuration $index');
+    ItemData itemData = new ItemData('title$index', 'subtitle $index',
+        'author $index', 'publishDate $index', 'readDuration $index');
     resultList.add(itemData);
   }
 
@@ -54,14 +57,19 @@ Future<Map> getIndexListData([Map<String, dynamic> params]) async {
 }
 
 Widget getItemWidget(index, item) {
+  var title = item.title;
+  var subtitle = item.subtitle;
+  var author = item.author;
+  var publishDate = item.publishDate;
+  var readDuration = item.readDuration;
   return CustomListItemTwo(
     thumbnail: Container(
       decoration: BoxDecoration(color: Colors.green),
     ),
-    title: item.title,
-    subtitle: item.subtitle,
-    author: item.author,
-    publishDate: item.publishDate,
-    readDuration: item.readDuration,
+    title: title,
+    subtitle: subtitle,
+    author: author,
+    publishDate: publishDate,
+    readDuration: readDuration,
   );
 }
