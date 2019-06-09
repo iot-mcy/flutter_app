@@ -1,11 +1,14 @@
 import 'dart:developer';
 
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Test2.dart';
 import 'package:flutter_app/Test3.dart';
 import 'package:flutter_app/Test4.dart';
 import 'package:flutter_app/Test5.dart';
 import 'package:flutter_app/demos.dart';
+import 'package:flutter_app/routers/application.dart';
+import 'package:flutter_app/routers/routes.dart';
 import 'package:flutter_app/test1.dart';
 import 'package:flutter_app/widget/Button.dart';
 import 'package:flutter_app/widget/ConstrainedBoxAndSizedBox.dart';
@@ -24,9 +27,14 @@ import 'package:flutter_app/widget/WrapLayout.dart';
 import 'PaddingTestRoute.dart';
 import 'RowLayout.dart';
 import 'ScaffoldRoute.dart';
+import 'model/story.dart';
 
 class GalleryApp extends StatelessWidget {
-  const GalleryApp({Key key}) : super(key: key);
+  GalleryApp() {
+    Router router = new Router();
+    Routes.configureRoutes(router);
+    Application.router = router;
+  }
 
   Map<String, WidgetBuilder> _buildRoutes() {
     return Map<String, WidgetBuilder>.fromIterable(
@@ -44,10 +52,10 @@ class GalleryApp extends StatelessWidget {
       theme: new ThemeData(
         primarySwatch: Colors.red,
       ),
+      onGenerateRoute: Application.router.generator,
       routes: _buildRoutes(),
 //      routes: {
 //        Test1.routeName: (context) => Test1(),
-//        Test2.routeName: (context) => Test2(),
 //      },
       home: new Home(),
     );
@@ -77,8 +85,29 @@ class Home extends StatelessWidget {
                           color: Colors.blue,
                           textColor: Colors.white,
                           onPressed: () {
-//                Navigator.pushNamed(context, Test1.routeName);
-                            _onNavigator(context, Test1.routeName);
+                            String message = "Flutter";
+                            int code = 78;
+
+                            String route = "/category/" +
+                                Test1.routeName +
+                                "?message=$message&color=$code";
+
+                            //第三方路由
+//                            Application.router.navigateTo(context, route);
+
+                            //命名路由
+//                            Navigator.pushNamed(context, Test1.routeName);
+                            //命名路由传自定义参数
+                            Navigator.pushNamed(context, Test1.routeName,
+                                arguments: StoryModel(1, "flutter"));
+
+                            //构建路由，可以传自定义参数
+//                            Navigator.push(context, new MaterialPageRoute(
+//                                builder: (context) {
+//                              return new Test1();
+//                            }));
+
+//                            _onNavigator(context, Test1.routeName);
                           }))
                 ],
               ),
@@ -87,8 +116,9 @@ class Home extends StatelessWidget {
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-//                Navigator.pushNamed(context, Test2.routeName);
-                    _onNavigator(context, Test2.routeName);
+                    String message = "Flutter";
+                    Application.router.navigateTo(
+                        context, Test2.routeName + "?message=$message");
                   }),
               new FlatButton(
                   child: new Text("Test3"),
@@ -238,4 +268,5 @@ void _onNavigator(BuildContext context, String routeName) {
     'to': routeName,
   });
   Navigator.pushNamed(context, routeName);
+//  Application.router.navigateTo(context, '/category$routeName');
 }

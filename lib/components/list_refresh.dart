@@ -13,17 +13,21 @@ class ListRefresh extends StatefulWidget {
   final renderItem;
   final requestApi;
   final headerView;
+  final bool showDivider;
 
-  const ListRefresh([this.requestApi, this.renderItem, this.headerView])
+  const ListRefresh(
+      [this.requestApi, this.renderItem, this.headerView, this.showDivider])
       : super();
 
   @override
-  State<StatefulWidget> createState() => _ListRefreshState();
+  State<StatefulWidget> createState() => _ListRefreshState(showDivider);
 }
 
 class _ListRefreshState extends State<ListRefresh> {
-  static final int pageSize = 7;
+  _ListRefreshState(this.isShowDivider);
 
+  static final int pageSize = 7;
+  bool isShowDivider;
   bool isLoading = false; // 是否正在请求数据中
   bool _hasMore = true; // 是否还有更多数据可加载
   int _pageIndex = 0; // 页面的索引
@@ -161,9 +165,20 @@ class _ListRefreshState extends State<ListRefresh> {
   @override
   Widget build(BuildContext context) {
     return new RefreshIndicator(
-      child: _SeparatedListViewWidget(),
+      child: getListView(),
       onRefresh: _handleRefresh,
     );
+  }
+
+  Widget getListView() {
+    if (isShowDivider == null) {
+      isShowDivider = false;
+    }
+    if (isShowDivider) {
+      return _SeparatedListViewWidget();
+    } else {
+      return _ListViewWidget();
+    }
   }
 
   Widget _ListViewWidget() {
@@ -193,12 +208,12 @@ class _ListRefreshState extends State<ListRefresh> {
   }
 
   Widget _SeparatedListViewWidget() {
-    Widget dividerBlue = Divider(
+    Widget divider = Divider(
       color: Colors.grey,
       height: 0.0,
     );
     return ListView.separated(
-      separatorBuilder: (BuildContext context, int index) => dividerBlue,
+      separatorBuilder: (BuildContext context, int index) => divider,
       itemCount: items.length + 1,
       itemBuilder: (context, index) {
         if (index == 0 && index != items.length) {

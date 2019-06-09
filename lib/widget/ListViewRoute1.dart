@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/components/list_refresh.dart' as listComp;
+import 'package:flutter_app/components/pagination.dart';
 import 'package:flutter_app/custom_view/CustomListItemTwo.dart';
 
 import 'ListViewRoute.dart';
@@ -26,14 +27,15 @@ class _ListViewRoute1 extends State<ListViewRoute1> {
         body: Column(
           children: <Widget>[
             Expanded(
-                child:
-                    listComp.ListRefresh(getIndexListData, getItemWidget, null))
+                child: listComp.ListRefresh(
+                    getIndexListData, getItemWidget, headerView1, false))
           ],
         ));
   }
 }
 
 Future<Map> getIndexListData([Map<String, dynamic> params]) async {
+  //todo 在这里做网络请求
   var pageIndex = (params is Map) ? params['pageIndex'] : 0;
   var pageTotal = 10;
 
@@ -71,5 +73,26 @@ Widget getItemWidget(index, item) {
     author: author,
     publishDate: publishDate,
     readDuration: readDuration,
+  );
+}
+
+Widget headerView() {
+  return Column(
+    children: <Widget>[
+      Stack(
+        children: <Widget>[
+          Pagination(),
+        ],
+      )
+    ],
+  );
+}
+
+Widget headerView1() {
+  return Container(
+        height: 100.0,
+        color: Colors.blue,
+        alignment: Alignment.center,
+        child: Text("HeaderView"),
   );
 }

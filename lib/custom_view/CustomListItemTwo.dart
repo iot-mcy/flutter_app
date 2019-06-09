@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-//import 'package:fluttertoast/fluttertoast.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class CustomListItemTwo extends StatelessWidget {
   final Widget thumbnail;
@@ -24,7 +24,7 @@ class CustomListItemTwo extends StatelessWidget {
     // TODO: implement build
     return InkWell(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.0),
+        padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
         child: SizedBox(
           height: 100.0,
           child: Row(
@@ -94,15 +94,7 @@ class CustomListItemTwo extends StatelessWidget {
   void onItemClick(String title) {
     // todo 做跳转动作
     print(title);
-//    Fluttertoast.showToast(
-//        msg: "This is Center Short Toast",
-//        toastLength: Toast.LENGTH_SHORT,
-//        gravity: ToastGravity.CENTER,
-//        timeInSecForIos: 1,
-//        backgroundColor: Colors.red,
-//        textColor: Colors.white,
-//        fontSize: 16.0
-//    );
+    Fluttertoast.showToast(msg: title);
   }
 }
 
