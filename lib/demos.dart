@@ -112,28 +112,23 @@ List<GalleryDemo> _buildGalleryDemos() {
     GalleryDemo(
         title: "TransformWidget",
         routeName: TransformWidget.routeName,
-        builderRoute: (BuildContext context) =>
-        const TransformWidget()),
+        builderRoute: (BuildContext context) => const TransformWidget()),
     GalleryDemo(
         title: "ContainerWidget",
         routeName: ContainerWidget.routeName,
-        builderRoute: (BuildContext context) =>
-        const ContainerWidget()),
+        builderRoute: (BuildContext context) => const ContainerWidget()),
     GalleryDemo(
         title: "ScaffoldRoute",
         routeName: ScaffoldRoute.routeName,
-        builderRoute: (BuildContext context) =>
-        const ScaffoldRoute()),
+        builderRoute: (BuildContext context) => const ScaffoldRoute()),
     GalleryDemo(
         title: "ListViewRoute",
         routeName: ListViewRoute.routeName,
-        builderRoute: (BuildContext context) =>
-        const ListViewRoute()),
+        builderRoute: (BuildContext context) => const ListViewRoute()),
     GalleryDemo(
         title: "ListViewRoute1",
         routeName: ListViewRoute1.routeName,
-        builderRoute: (BuildContext context) =>
-        const ListViewRoute1()),
+        builderRoute: (BuildContext context) => const ListViewRoute1()),
   ];
   return galleryDemos;
 }

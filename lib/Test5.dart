@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class ParentWidget extends StatefulWidget {
-
   const ParentWidget({Key key}) : super(key: key);
   static const String routeName = "/Test5";
 

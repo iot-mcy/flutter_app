@@ -25,7 +25,9 @@ class RowLayout extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text("Hello world",),
+              Text(
+                "Hello world",
+              ),
               Text("I am Jack"),
             ],
           ),

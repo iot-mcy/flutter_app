@@ -90,9 +90,9 @@ Widget headerView() {
 
 Widget headerView1() {
   return Container(
-        height: 100.0,
-        color: Colors.blue,
-        alignment: Alignment.center,
-        child: Text("HeaderView"),
+    height: 100.0,
+    color: Colors.blue,
+    alignment: Alignment.center,
+    child: Text("HeaderView"),
   );
 }

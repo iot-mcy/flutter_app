@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Test4 extends StatelessWidget {
-
   const Test4({Key key}) : super(key: key);
   static const String routeName = "/Test4";
 
@@ -50,8 +49,8 @@ class _MyHomePageState extends State<MyHomePage> {
 //                  Navigator.pushNamed(context, "new_page");
                   Navigator.push(context,
                       new MaterialPageRoute(builder: (context) {
-                        return new NewRoute();
-                      }));
+                    return new NewRoute();
+                  }));
                 },
                 child: new Text("open new route")),
           ],
