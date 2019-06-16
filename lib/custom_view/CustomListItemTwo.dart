@@ -41,7 +41,7 @@ class CustomListItemTwo extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Expanded(
-                        flex: 2,
+                        flex: 3,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -61,7 +61,7 @@ class CustomListItemTwo extends StatelessWidget {
                           ],
                         )),
                     Expanded(
-                        flex: 1,
+                        flex: 2,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.end,
