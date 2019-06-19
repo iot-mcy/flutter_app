@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/app.dart';
+
+import 'AppPage.dart';
 
 void main() {
-  runApp(GalleryApp());
+  runApp(AppPage());
 }
