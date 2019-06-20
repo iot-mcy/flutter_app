@@ -29,6 +29,9 @@ import 'RowLayout.dart';
 import 'ScaffoldRoute.dart';
 import 'model/story.dart';
 
+/// 作者 mcy
+/// 时间 2019/6/20 14:34
+///
 class GalleryApp extends StatelessWidget {
   GalleryApp() {
     Router router = new Router();
@@ -57,12 +60,12 @@ class GalleryApp extends StatelessWidget {
 //      routes: {
 //        Test1.routeName: (context) => Test1(),
 //      },
-      home: new Home(),
+      home: new _Home(),
     );
   }
 }
 
-class Home extends StatelessWidget {
+class _Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
