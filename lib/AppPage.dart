@@ -1,3 +1,6 @@
+//import 'dart:io';
+
+//import 'package:flutter/services.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/routers/application.dart';
@@ -12,6 +15,11 @@ import 'package:fluttertoast/fluttertoast.dart';
 ///
 class AppPage extends StatelessWidget {
   AppPage() {
+//    if (Platform.isAndroid) {
+//      SystemUiOverlayStyle systemUiOverlayStyle =
+//          SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+//      SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+//    }
     Router router = new Router();
     Routes.configureRoutes(router);
     Application.router = router;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/components/search_input.dart';
 import 'package:flutter_app/views/home/category/attention.dart';
+import 'package:flutter_app/views/home/category/recommend.dart';
 
 /// 作者 mcy
 /// 时间 2019/6/20 16:17
@@ -30,7 +31,7 @@ class _homeState extends State with SingleTickerProviderStateMixin {
 
   var widgetList = <Widget>[
     Attention(),
-    Attention(),
+    Recommend(),
     Attention(),
     Attention(),
     Attention(),
@@ -52,38 +53,41 @@ class _homeState extends State with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
-        appBar: AppBar(
-          elevation: 0.0,
-          title: builderSearchInput(context),
+    return DefaultTabController(
+      length: tabTitleList.length,
+      child: Scaffold(
+          appBar: AppBar(
+            elevation: 0.0,
+            title: builderSearchInput(context),
 //          bottom: TabBar(
 //            labelStyle: TextStyle(fontSize: 18.0),
 //            isScrollable: true,
 //            tabs: tabTitleList,
 //            controller: _tabController,
 //          ),
-        ),
-        body: Column(
-          children: <Widget>[
-            Container(
-              height: 40,
-              child: TabBar(
-                labelStyle: TextStyle(fontSize: 18.0),
-                indicatorColor: Colors.transparent,
-                labelColor: Colors.red,
-                unselectedLabelColor: Colors.black54,
-                isScrollable: true,
-                tabs: tabTitleList,
-                controller: _tabController,
+          ),
+          body: Column(
+            children: <Widget>[
+              Container(
+                height: 40,
+                child: TabBar(
+                  labelStyle: TextStyle(fontSize: 18.0),
+                  indicatorColor: Colors.transparent,
+                  labelColor: Colors.red,
+                  unselectedLabelColor: Colors.black54,
+                  isScrollable: true,
+                  tabs: tabTitleList,
+                  controller: _tabController,
+                ),
               ),
-            ),
-            Expanded(
-                child: TabBarView(
-              children: widgetList,
-              controller: _tabController,
-            ))
-          ],
-        ));
+              Expanded(
+                  child: TabBarView(
+                children: widgetList,
+                controller: _tabController,
+              ))
+            ],
+          )),
+    );
   }
 }
 

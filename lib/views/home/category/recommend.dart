@@ -4,22 +4,22 @@ import 'package:flutter_app/components/pagination.dart';
 import 'package:flutter_app/custom_view/CustomListItemTwo.dart';
 import 'package:flutter_app/widget/ListViewRoute.dart';
 
-class Attention extends StatefulWidget {
+class Recommend extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return _AttentionState();
+    return _RecommendState();
   }
 }
 
-class _AttentionState extends State<Attention>
+class _RecommendState extends State<Recommend>
     with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       body: listComp.ListRefresh(
-          getIndexListData, getItemWidget, headerView1, false),
+          getIndexListData, getItemWidget, headerView, false),
     );
   }
 
