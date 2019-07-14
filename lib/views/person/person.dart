@@ -32,7 +32,7 @@ class Person extends StatelessWidget {
                           "梦里的奥特曼",
                           style: TextStyle(
                               color: Colors.black87,
-                              fontSize: 18,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold),
                         ),
                         Padding(padding: EdgeInsets.symmetric(vertical: 4)),
@@ -212,7 +212,7 @@ class Person extends StatelessWidget {
                   Expanded(
                       child: Text(
                     "我的钱包",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 16, color: Colors.black87),
                   )),
                   Text("话费优惠，速充值！",
                       style: TextStyle(fontSize: 16, color: Colors.black38)),
@@ -244,7 +244,7 @@ class Person extends StatelessWidget {
                   Expanded(
                       child: Text(
                     "消息通知",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 16, color: Colors.black87),
                   )),
                   Icon(
                     Icons.arrow_forward_ios,
@@ -274,7 +274,7 @@ class Person extends StatelessWidget {
                   Expanded(
                       child: Text(
                     "小程序",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 16, color: Colors.black87),
                   )),
                   Icon(
                     Icons.arrow_forward_ios,
@@ -301,7 +301,7 @@ class Person extends StatelessWidget {
                   Expanded(
                       child: Text(
                     "作品管理",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 16, color: Colors.black87),
                   )),
                   Icon(
                     Icons.arrow_forward_ios,
@@ -331,7 +331,7 @@ class Person extends StatelessWidget {
                   Expanded(
                       child: Text(
                     "我的书架",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 16, color: Colors.black87),
                   )),
                   Icon(
                     Icons.arrow_forward_ios,
@@ -361,7 +361,7 @@ class Person extends StatelessWidget {
                   Expanded(
                       child: Text(
                     "扫一扫",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 16, color: Colors.black87),
                   )),
                   Icon(
                     Icons.arrow_forward_ios,
@@ -391,7 +391,7 @@ class Person extends StatelessWidget {
                   Expanded(
                       child: Text(
                     "免流量服务",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 16, color: Colors.black87),
                   )),
                   Icon(
                     Icons.arrow_forward_ios,
@@ -421,7 +421,7 @@ class Person extends StatelessWidget {
                   Expanded(
                       child: Text(
                     "公益精灵",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 16, color: Colors.black87),
                   )),
                   Text("养精灵做公益，免费捐书",
                       style: TextStyle(fontSize: 16, color: Colors.black38)),
@@ -453,7 +453,7 @@ class Person extends StatelessWidget {
                   Expanded(
                       child: Text(
                     "阅读公益",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 16, color: Colors.black87),
                   )),
                   Text("迁移到圆梦精灵",
                       style: TextStyle(fontSize: 16, color: Colors.black38)),
@@ -485,7 +485,7 @@ class Person extends StatelessWidget {
                   Expanded(
                       child: Text(
                     "广告推广",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 16, color: Colors.black87),
                   )),
                   Icon(
                     Icons.arrow_forward_ios,
@@ -512,7 +512,7 @@ class Person extends StatelessWidget {
                   Expanded(
                       child: Text(
                     "用户反馈",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 16, color: Colors.black87),
                   )),
                   Icon(
                     Icons.arrow_forward_ios,
@@ -542,7 +542,7 @@ class Person extends StatelessWidget {
                   Expanded(
                       child: Text(
                     "系统设置",
-                    style: TextStyle(fontSize: 18, color: Colors.black87),
+                    style: TextStyle(fontSize: 16, color: Colors.black87),
                   )),
                   Icon(
                     Icons.arrow_forward_ios,
