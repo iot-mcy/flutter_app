@@ -28,7 +28,6 @@ class ItemVideo extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
           ),
           Container(
-            color: Colors.black26,
             padding: EdgeInsets.all(8),
             height: 64,
             child: Column(

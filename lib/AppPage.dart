@@ -1,8 +1,11 @@
 //import 'dart:io';
 
 //import 'package:flutter/services.dart';
+import 'dart:io';
+
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_app/routers/application.dart';
 import 'package:flutter_app/routers/routes.dart';
 import 'package:flutter_app/views/home/home.dart';
@@ -13,13 +16,17 @@ import 'package:fluttertoast/fluttertoast.dart';
 /// 作者 mcy
 /// 时间 2019/6/20 14:23
 ///
+///
+const int ThemeColor = 0xFFC91B3A;
+
 class AppPage extends StatelessWidget {
   AppPage() {
-//    if (Platform.isAndroid) {
-//      SystemUiOverlayStyle systemUiOverlayStyle =
-//          SystemUiOverlayStyle(statusBarColor: Colors.transparent);
-//      SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
-//    }
+    if (Platform.isAndroid) {///是Android系统的设置状态栏未透明的
+      SystemUiOverlayStyle systemUiOverlayStyle =
+          SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+      SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+    }
+
     Router router = new Router();
     Routes.configureRoutes(router);
     Application.router = router;
@@ -30,11 +37,18 @@ class AppPage extends StatelessWidget {
     // TODO: implement build
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.red,
+//        primarySwatch: Colors.red,
+        primaryColor: Color(ThemeColor),
         backgroundColor: Colors.grey[100],
         accentColor: Colors.grey[600],
-        primaryColor: Colors.red,
+//        textTheme: TextTheme(
+//          body1: TextStyle(color: Color(0xFF888888),fontSize: 16.0)
+//        ),
+        iconTheme: IconThemeData(color: Color(ThemeColor))
       ),
+      debugShowCheckedModeBanner: false,
+
+      ///去除debug图标
       onGenerateRoute: Application.router.generator,
       home: HomePage(),
     );
