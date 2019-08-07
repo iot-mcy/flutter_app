@@ -7,18 +7,19 @@ BaseOptions options = new BaseOptions(
   connectTimeout: 5000,
   receiveTimeout: 3000,
 );
-var dio = new Dio(options);
+
+var dio = new Dio();
 
 class NetUtils {
   ///get请求
-  static Future get(String url, {Map<String, dynamic> params}) async {
+  static Future get(String url, Map<String, dynamic> params) async {
     var response = await dio.get(url, queryParameters: params);
-    return response;
+    return response.data;
   }
 
   ///post请求
   static Future post(String url, {Map<String, dynamic> params}) async {
     var response = await dio.post(url, data: params);
-    return response;
+    return response.data;
   }
 }

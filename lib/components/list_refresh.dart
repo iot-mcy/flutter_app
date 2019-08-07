@@ -209,7 +209,7 @@ class _ListRefreshState extends State<ListRefresh> {
 
   Widget _SeparatedListViewWidget() {
     Widget divider = Divider(
-      color: Colors.grey,
+      color: Colors.grey[400],
       height: 0.0,
     );
     return ListView.separated(

@@ -224,8 +224,8 @@ class _ListViewRoute extends State<ListViewRoute> {
         title: itemData.title,
         subtitle: itemData.subtitle,
         author: itemData.author,
-        publishDate: itemData.publishDate,
-        readDuration: itemData.readDuration,
+        createdTime: itemData.publishDate,
+        commentCount: 1,
       );
     }
     return _getMoreWidget();

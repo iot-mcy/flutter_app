@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/components/search_input.dart';
-import 'package:flutter_app/views/home/category/attention.dart';
-import 'package:flutter_app/views/home/category/recommend.dart';
+import 'category/attention/attention_page.dart';
+
+import 'category/hotspot/hotspot_page.dart';
+import 'category/recommend/recommend_page.dart';
+import 'category/science_technology/science_technology.dart';
 
 /// 作者 mcy
 /// 时间 2019/6/20 16:17
@@ -30,24 +33,24 @@ class _homeState extends State with SingleTickerProviderStateMixin {
   }
 
   var widgetList = <Widget>[
-    Attention(),
-    Recommend(),
-    Attention(),
-    Attention(),
-    Attention(),
-    Attention(),
-    Attention(),
-    Attention(),
+    AttentionPage(),
+    RecommendPage(),
+    HotspotPage(),
+    ScienceTechnology(),
+    ScienceTechnology(),
+    ScienceTechnology(),
+    ScienceTechnology(),
+    ScienceTechnology(),
   ];
   var tabTitleList = <Widget>[
     Text("关注"),
     Text("推荐"),
-    Text("科技"),
-    Text("视频"),
-    Text("南宁"),
     Text("热点"),
-    Text("互联网"),
-    Text("电影"),
+    Text("科技"),
+    Text("娱乐"),
+    Text("游戏"),
+    Text("体育"),
+    Text("汽车"),
   ];
 
   @override

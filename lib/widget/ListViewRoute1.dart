@@ -71,8 +71,8 @@ Widget getItemWidget(index, item) {
     title: title,
     subtitle: subtitle,
     author: author,
-    publishDate: publishDate,
-    readDuration: readDuration,
+    createdTime: publishDate,
+    commentCount: readDuration,
   );
 }
 

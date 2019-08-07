@@ -25,6 +25,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   fluttertoast: ^3.1.0
   dio: 2.1.13
+  flutter_webview_plugin: ^0.3.5
+  pull_to_refresh: ^1.5.3
   #Fluro is a Flutter routing library that adds flexible routing options like wildcards,
   #named parameters and clear route definitions.
   fluro: "^1.4.0"
@@ -77,5 +79,5 @@ flutter:
   # see https://flutter.io/custom-fonts/#from-packages
 
   assets:
-  - assets/images/image01.png
-  - assets/images/image02.png
+    - assets/images/image01.png
+    - assets/images/image02.png

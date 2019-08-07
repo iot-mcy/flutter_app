@@ -47,8 +47,6 @@ class AppPage extends StatelessWidget {
         iconTheme: IconThemeData(color: Color(ThemeColor))
       ),
       debugShowCheckedModeBanner: false,
-
-      ///去除debug图标
       onGenerateRoute: Application.router.generator,
       home: HomePage(),
     );

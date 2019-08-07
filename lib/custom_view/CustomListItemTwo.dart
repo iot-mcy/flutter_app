@@ -6,8 +6,9 @@ class CustomListItemTwo extends StatelessWidget {
   final String title;
   final String subtitle;
   final String author;
-  final String publishDate;
-  final String readDuration;
+  final String createdTime;
+  final int commentCount;
+  final String detailUrl;
 
   const CustomListItemTwo(
       {Key key,
@@ -15,8 +16,9 @@ class CustomListItemTwo extends StatelessWidget {
       this.title,
       this.subtitle,
       this.author,
-      this.publishDate,
-      this.readDuration})
+      this.createdTime,
+      this.commentCount,
+      this.detailUrl})
       : super(key: key);
 
   @override
@@ -72,7 +74,7 @@ class CustomListItemTwo extends StatelessWidget {
                                   fontSize: 12.0, color: Colors.black87),
                             ),
                             Text(
-                              '$publishDate ▪ $readDuration ★',
+                              '$createdTime ▪ $commentCount',
                               style: TextStyle(
                                   fontSize: 12.0, color: Colors.black54),
                             )

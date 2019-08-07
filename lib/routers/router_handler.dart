@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app/views/web_page/web_view_page.dart';
 
 import '../Test2.dart';
 import '../test1.dart';
@@ -18,4 +19,11 @@ var categoryHandler = new Handler(
 var routesTest1Handler = new Handler(
     handlerFunc: (BuildContext context, Map<String, dynamic> params) {
   return new Test2();
+});
+
+var webViewPageHand = new Handler(
+    handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  String url = params["url"]?.first;
+  String title = params["title"]?.first;
+  return new WebViewPage(url, title);
 });
