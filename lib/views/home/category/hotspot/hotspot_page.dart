@@ -23,6 +23,7 @@ class _HotspotPageState extends State<HotspotPage> {
   int _count = 0;
   EasyRefreshController _controller = EasyRefreshController();
   List items = new List();
+  int max_behot_time = 0;
 
   @override
   void initState() {
@@ -54,7 +55,7 @@ class _HotspotPageState extends State<HotspotPage> {
           ),
         ],
         onRefresh: () async {
-          getData();
+          getData(true, 0);
 //          await Future.delayed(Duration(seconds: 2), () {
 //            setState(() {
 //              _controller.finishRefresh(success: true);
@@ -64,31 +65,43 @@ class _HotspotPageState extends State<HotspotPage> {
 //          });
         },
         onLoad: () async {
-          await Future.delayed(Duration(seconds: 2), () {
-            setState(() {
-              if (_count > 38) {
-                _controller.finishLoad(success: true, noMore: true);
-                return;
-              }
-              _controller.finishLoad(success: true, noMore: false);
-              _count += 20;
-            });
-          });
+          getData(false, max_behot_time);
+//          await Future.delayed(Duration(seconds: 2), () {
+//            setState(() {
+//              if (_count > 38) {
+//                _controller.finishLoad(success: true, noMore: true);
+//                return;
+//              }
+//              _controller.finishLoad(success: true, noMore: false);
+//              _count += 20;
+//            });
+//          });
         },
       ),
     );
   }
 
-  getData() async {
-    final _param = {'max_behot_time': 0};
+  getData(bool isRefresh, int time) async {
+    final _param = {'max_behot_time': time};
     var response = await NetUtils.get(
         "https://www.toutiao.com/api/pc/feed/?category=news_hot", _param);
     print(response);
-    items =  new HotspotPageItemData.fromJson(response);
+    max_behot_time = response['next']['max_behot_time'];
+    var responseList = [];
+    responseList = response['data'];
+    List list = new List();
+    for (int index = 0; index < responseList.length; index++) {
+      var entity = responseList[index];
+      list.add(new HotspotPageItemData.fromJson(entity));
+    }
+
     setState(() {
       _controller.finishRefresh(success: true);
       _controller.finishLoad(noMore: false);
-      _count = 20;
+      if (isRefresh) {
+        items.clear();
+      }
+      items.addAll(list);
     });
   }
 }

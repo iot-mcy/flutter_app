@@ -25,7 +25,7 @@ class Util {
 
   static String getTimeDuration2(int comTime) {
     var nowTime = DateTime.now();
-    var compareTime = DateTime.fromMicrosecondsSinceEpoch(comTime);
+    var compareTime = DateTime.fromMillisecondsSinceEpoch(comTime);
     if (nowTime.isAfter(compareTime)) {
       if (nowTime.year == compareTime.year) {
         if (nowTime.month == compareTime.month) {
