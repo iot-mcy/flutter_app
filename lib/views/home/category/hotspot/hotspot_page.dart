@@ -18,7 +18,8 @@ class HotspotPage extends StatefulWidget {
   }
 }
 
-class _HotspotPageState extends State<HotspotPage> {
+class _HotspotPageState extends State<HotspotPage>
+    with AutomaticKeepAliveClientMixin {
   // 总数
   int _count = 0;
   EasyRefreshController _controller = EasyRefreshController();
@@ -104,4 +105,8 @@ class _HotspotPageState extends State<HotspotPage> {
       items.addAll(list);
     });
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }
