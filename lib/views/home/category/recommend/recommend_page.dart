@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/components/pagination.dart';
-import 'package:flutter_app/custom_view/CustomListItemTwo.dart';
-import 'package:flutter_app/widget/ListViewRoute.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:flutter_app/components/custom_empty_widget.dart';
+import 'package:flutter_app/components/custom_first_refresh_widget.dart';
+import 'package:flutter_app/components/custom_refresh_header_footer.dart';
+import 'package:flutter_app/utils/net_utils.dart';
+import 'package:flutter_app/views/home/category/hotspot/hotspot_page_item_data.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
+
+import 'recommend_page_item.dart';
 
 /// 作者 mcy
 /// 时间 2019/8/7 16:33
@@ -18,69 +22,47 @@ class RecommendPage extends StatefulWidget {
 
 class _RecommendPageState extends State<RecommendPage>
     with AutomaticKeepAliveClientMixin {
-  List<String> items = ["1", "2", "3", "4", "5", "6", "7", "8"];
-  RefreshController _refreshController =
-      RefreshController(initialRefresh: false);
+  EasyRefreshController _controller = EasyRefreshController();
+  List items = new List();
+  int max_behot_time = 0;
 
-  void _onRefresh() async {
-    // monitor network fetch
-    await Future.delayed(Duration(milliseconds: 1000));
-    // if failed,use refreshFailed()
-    _refreshController.refreshCompleted();
-  }
-
-  void _onLoading() async {
-    // monitor network fetch
-    await Future.delayed(Duration(milliseconds: 1000));
-    // if failed,use loadFailed(),if no data return,use LoadNodata()
-    items.add((items.length + 1).toString());
-    if (mounted)
-      setState(() {
-        //todo
-      });
-    _refreshController.loadComplete();
-  }
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SmartRefresher(
-        enablePullDown: true,
-        enablePullUp: true,
-        header: ClassicHeader (),
-        footer: CustomFooter(
-          builder: (BuildContext context, LoadStatus mode) {
-            Widget body;
-            if (mode == LoadStatus.idle) {
-              body = Text("pull up load");
-            } else if (mode == LoadStatus.loading) {
-              body = CupertinoActivityIndicator();
-            } else if (mode == LoadStatus.failed) {
-              body = Text("Load Failed!Click retry!");
-            } else {
-              body = Text("No more Data");
-            }
-            return Container(
-              height: 55.0,
-              child: Center(child: body),
-            );
-          },
-        ),
-        controller: _refreshController,
-        onRefresh: _onRefresh,
-        onLoading: _onLoading,
-        child: ListView.builder(
-          itemBuilder: (c, i) => Card(child: Center(child: Text(items[i]))),
-          itemExtent: 100.0,
-          itemCount: items.length,
-        ),
+      body: EasyRefresh(
+        controller: _controller,
+        enableControlFinishRefresh: true,
+        enableControlFinishLoad: true,
+        header: CustomClassicalHeaderFooter.getHeader(),
+        footer: CustomClassicalHeaderFooter.getFooter(),
+//        header: MaterialHeader(),
+//        footer: MaterialFooter(),
+        firstRefresh: true,
+        firstRefreshWidget: CustomFirstRefreshWidget.firstRefreshWidget(),
+        emptyWidget: items.length == 0 ? CustomEmptyWidget.emptyWidget() : null,
+        child: ListView.separated(
+            itemBuilder: (BuildContext context, int index) {
+              return RecommendPageItem(items[index]);
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return Divider(
+                color: Colors.grey[400],
+                height: 0.0,
+              );
+            },
+            itemCount: items.length),
+        onRefresh: () async {
+          getData(true, 0);
+        },
+        onLoad: () async {
+          getData(false, max_behot_time);
+        },
       ),
     );
   }
-
-  @override
-  // TODO: implement wantKeepAlive
-  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -91,70 +73,30 @@ class _RecommendPageState extends State<RecommendPage>
   @override
   void dispose() {
     // TODO: implement dispose
-    _refreshController.dispose();
     super.dispose();
   }
-}
 
-Future<Map> getIndexListData([Map<String, dynamic> params]) async {
-  //todo 在这里做网络请求
-  var pageIndex = (params is Map) ? params['pageIndex'] : 0;
-  var pageTotal = 10;
+  getData(bool isRefresh, int time) async {
+    final _param = {'max_behot_time': time};
+    var response =
+        await NetUtils.get("https://www.toutiao.com/api/pc/feed/?", _param);
+    print(response);
+    max_behot_time = response['next']['max_behot_time'];
+    var responseList = [];
+    responseList = response['data'];
+    List list = new List();
+    for (int index = 0; index < responseList.length; index++) {
+      var entity = responseList[index];
+      list.add(new HotspotPageItemData.fromJson(entity));
+    }
 
-  List resultList = new List();
-  for (int index = pageIndex == 0 ? 0 : 7;
-      index < (pageIndex == 0 ? 7 : 10);
-      index++) {
-    ItemData itemData = new ItemData('title$index', 'subtitle $index',
-        'author $index', 'publishDate $index', 'readDuration $index');
-    resultList.add(itemData);
+    setState(() {
+      _controller.finishRefresh(success: true);
+      _controller.finishLoad(noMore: false);
+      if (isRefresh) {
+        items.clear();
+      }
+      items.addAll(list);
+    });
   }
-
-  pageIndex += 1;
-
-  Map<String, dynamic> result = {
-    "list": resultList,
-    'total': pageTotal,
-    'pageIndex': pageIndex
-  };
-  return result;
-}
-
-Widget getItemWidget(index, item) {
-  var title = item.title;
-  var subtitle = item.subtitle;
-  var author = item.author;
-  var publishDate = item.publishDate;
-  var readDuration = 1;
-  return CustomListItemTwo(
-    thumbnail: Container(
-      decoration: BoxDecoration(color: Colors.green),
-    ),
-    title: title,
-    subtitle: subtitle,
-    author: author,
-    createdTime: publishDate,
-    commentCount: readDuration,
-  );
-}
-
-Widget headerView() {
-  return Column(
-    children: <Widget>[
-      Stack(
-        children: <Widget>[
-          Pagination(),
-        ],
-      )
-    ],
-  );
-}
-
-Widget headerView1() {
-  return Container(
-    height: 100.0,
-    color: Colors.blue,
-    alignment: Alignment.center,
-    child: Text("HeaderView"),
-  );
 }

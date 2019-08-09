@@ -20,11 +20,12 @@ class HotspotPage extends StatefulWidget {
 
 class _HotspotPageState extends State<HotspotPage>
     with AutomaticKeepAliveClientMixin {
-  // 总数
-  int _count = 0;
   EasyRefreshController _controller = EasyRefreshController();
   List items = new List();
   int max_behot_time = 0;
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -45,7 +46,21 @@ class _HotspotPageState extends State<HotspotPage>
         firstRefresh: true,
         firstRefreshWidget: CustomFirstRefreshWidget.firstRefreshWidget(),
         emptyWidget: items.length == 0 ? CustomEmptyWidget.emptyWidget() : null,
+
         slivers: <Widget>[
+          SliverList(
+            delegate: SliverChildListDelegate.fixed(<Widget>[
+              Container(
+                alignment: Alignment.center,
+                color: Colors.green,
+                height: 144.0,
+                child: Text(
+                  "wellcom",
+                  style: TextStyle(color: Colors.white, fontSize: 16.0),
+                ),
+              ),
+            ]),
+          ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
@@ -55,28 +70,24 @@ class _HotspotPageState extends State<HotspotPage>
             ),
           ),
         ],
+
+//        child: ListView.separated(
+//            itemBuilder: (BuildContext context, int index) {
+//              return HotspotPageItem(items[index]);
+//            },
+//            separatorBuilder: (BuildContext context, int index) {
+//              return Divider(
+//                color: Colors.grey[400],
+//                height: 0.0,
+//              );
+//            },
+//            itemCount: items.length),
+
         onRefresh: () async {
           getData(true, 0);
-//          await Future.delayed(Duration(seconds: 2), () {
-//            setState(() {
-//              _controller.finishRefresh(success: true);
-//              _controller.finishLoad(noMore: false);
-//              _count = 20;
-//            });
-//          });
         },
         onLoad: () async {
           getData(false, max_behot_time);
-//          await Future.delayed(Duration(seconds: 2), () {
-//            setState(() {
-//              if (_count > 38) {
-//                _controller.finishLoad(success: true, noMore: true);
-//                return;
-//              }
-//              _controller.finishLoad(success: true, noMore: false);
-//              _count += 20;
-//            });
-//          });
         },
       ),
     );
@@ -105,8 +116,4 @@ class _HotspotPageState extends State<HotspotPage>
       items.addAll(list);
     });
   }
-
-  @override
-  // TODO: implement wantKeepAlive
-  bool get wantKeepAlive => true;
 }

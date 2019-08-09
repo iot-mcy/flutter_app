@@ -7,10 +7,10 @@ import 'package:quiver/strings.dart';
 /// 作者 mcy
 /// 时间 2019/8/8 16:45
 /// 新推荐列表的item
-class RecommendPageItem extends StatelessWidget {
+class ScienceTechnologyPageItem extends StatelessWidget {
   HotspotPageItemData data;
 
-  RecommendPageItem(this.data);
+  ScienceTechnologyPageItem(this.data);
 
   @override
   Widget build(BuildContext context) {
@@ -40,34 +40,34 @@ class RecommendPageItem extends StatelessWidget {
                 ),
                 Expanded(
                     child: Column(
-                  children: <Widget>[
-                    Text(
-                      data.title,
-                      style: TextStyle(color: Colors.black, fontSize: 14.0),
-                      maxLines: 2,
-                    ),
-                    Expanded(
-                        child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: <Widget>[
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(30),
-                          child: Image.network(
-                            'https:${data.media_avatar_url}',
-                            width: 16.0,
-                            height: 16.0,
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                        Padding(padding: EdgeInsets.symmetric(horizontal: 4)),
                         Text(
-                          '${data.source}·${data.comments_count}评论·${Util.getTimeDuration2(data.behot_time * 1000)}',
-                          style: TextStyle(fontSize: 10.0),
-                        )
+                          data.title,
+                          style: TextStyle(color: Colors.black, fontSize: 14.0),
+                          maxLines: 2,
+                        ),
+                        Expanded(
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: Image.network(
+                                    'https:${data.media_avatar_url}',
+                                    width: 16.0,
+                                    height: 16.0,
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                                Padding(padding: EdgeInsets.symmetric(horizontal: 4)),
+                                Text(
+                                  '${data.source}·${data.comments_count}评论·${Util.getTimeDuration2(data.behot_time * 1000)}',
+                                  style: TextStyle(fontSize: 10.0),
+                                )
+                              ],
+                            )),
                       ],
-                    )),
-                  ],
-                ))
+                    ))
               ],
             ),
           )),

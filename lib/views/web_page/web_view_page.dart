@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+
 /// 作者 mcy
 /// 时间 2019/8/7 15:18
 /// WebView
@@ -25,11 +26,11 @@ class _WebViewPageState extends State<WebViewPage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
+    return WebviewScaffold(
+      url: widget.url,
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: WebviewScaffold(url: widget.url),
     );
   }
 }
