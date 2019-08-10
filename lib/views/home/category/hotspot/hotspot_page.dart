@@ -4,6 +4,7 @@ import 'package:flutter_app/components/custom_first_refresh_widget.dart';
 import 'package:flutter_app/components/custom_refresh_header_footer.dart';
 import 'package:flutter_app/utils/net_utils.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 
 import 'hotspot_page_item.dart';
 import 'hotspot_page_item_data.dart';
@@ -49,18 +50,43 @@ class _HotspotPageState extends State<HotspotPage>
 
         slivers: <Widget>[
           SliverList(
-            delegate: SliverChildListDelegate.fixed(<Widget>[
+            delegate: SliverChildListDelegate([
               Container(
-                alignment: Alignment.center,
-                color: Colors.green,
                 height: 144.0,
-                child: Text(
-                  "wellcom",
-                  style: TextStyle(color: Colors.white, fontSize: 16.0),
+                child: ScrollNotificationInterceptor(
+                  child: Swiper(
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(16.0)),
+                          color: Colors.teal[index * 100 + 100],
+                        ),
+                      );
+                    },
+                    itemCount: 5,
+                    viewportFraction: 0.8,
+                    scale: 0.9,
+                    autoplay: true,
+                    pagination: SwiperPagination(alignment: Alignment.bottomCenter),
+                    control: new SwiperControl(),
+                  ),
                 ),
               ),
             ]),
           ),
+//          SliverList(
+//            delegate: SliverChildListDelegate.fixed(<Widget>[
+//              Container(
+//                alignment: Alignment.center,
+//                color: Colors.green,
+//                height: 144.0,
+//                child: Text(
+//                  "wellcom",
+//                  style: TextStyle(color: Colors.white, fontSize: 16.0),
+//                ),
+//              ),
+//            ]),
+//          ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (context, index) {
