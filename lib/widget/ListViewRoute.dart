@@ -236,7 +236,7 @@ class _ListViewRoute extends State<ListViewRoute> {
       setState(() {
         for (int index = 0; index < 7; index++) {
           ItemData itemData = new ItemData("", 'subtitle $index',
-              'author $index', 'publishDate $index', 'readDuration $index');
+              'author $index', 'publishDate $index', index);
           list.add(itemData);
         }
       });
@@ -249,7 +249,7 @@ class _ListViewRoute extends State<ListViewRoute> {
         list.clear();
         for (int index = 0; index < 12; index++) {
           ItemData itemData = new ItemData("", 'subtitle $index',
-              'author $index', 'publishDate $index', 'readDuration $index');
+              'author $index', 'publishDate $index', index);
           list.add(itemData);
         }
       });
@@ -268,7 +268,7 @@ class _ListViewRoute extends State<ListViewRoute> {
           int size = list.length;
           for (int index = size; index < size + 5; index++) {
             ItemData itemData = new ItemData("", 'subtitle $index',
-                'author $index', 'publishDate $index', 'readDuration $index');
+                'author $index', 'publishDate $index', index);
             list.add(itemData);
           }
 
@@ -303,7 +303,7 @@ class ItemData {
   String subtitle;
   String author;
   String publishDate;
-  String readDuration;
+  int readDuration;
 
   ItemData(this.title, this.subtitle, this.author, this.publishDate,
       this.readDuration);

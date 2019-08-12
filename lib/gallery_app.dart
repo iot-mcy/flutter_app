@@ -1,15 +1,5 @@
-import 'dart:developer';
-
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/Test2.dart';
-import 'package:flutter_app/Test3.dart';
-import 'package:flutter_app/Test4.dart';
-import 'package:flutter_app/Test5.dart';
-import 'package:flutter_app/demos.dart';
 import 'package:flutter_app/routers/application.dart';
-import 'package:flutter_app/routers/routes.dart';
-import 'package:flutter_app/test1.dart';
 import 'package:flutter_app/widget/Button.dart';
 import 'package:flutter_app/widget/ConstrainedBoxAndSizedBox.dart';
 import 'package:flutter_app/widget/ContainerWidget.dart';
@@ -24,54 +14,25 @@ import 'package:flutter_app/widget/TextWidget.dart';
 import 'package:flutter_app/widget/TransformWidget.dart';
 import 'package:flutter_app/widget/WrapLayout.dart';
 
-import 'PaddingTestRoute.dart';
-import 'RowLayout.dart';
-import 'ScaffoldRoute.dart';
-import 'model/story.dart';
+import 'widget/PaddingTestRoute.dart';
+import 'widget/RowLayout.dart';
+import 'widget/ScaffoldRoute.dart';
+import 'widget/Test2.dart';
+import 'widget/Test3.dart';
+import 'widget/Test4.dart';
+import 'widget/Test5.dart';
+import 'widget/test1.dart';
 
 /// 作者 mcy
 /// 时间 2019/6/20 14:34
-///
+/// Widget Demo
 class GalleryApp extends StatelessWidget {
-  GalleryApp() {
-    Router router = new Router();
-    Routes.configureRoutes(router);
-    Application.router = router;
-  }
-
-  Map<String, WidgetBuilder> _buildRoutes() {
-    return Map<String, WidgetBuilder>.fromIterable(
-      kAllGalleryDemos,
-      key: (dynamic demo) => '${demo.routeName}',
-      value: (dynamic demo) => demo.builderRoute,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return new MaterialApp(
-      title: "主页",
-      theme: new ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      onGenerateRoute: Application.router.generator,
-      routes: _buildRoutes(),
-//      routes: {
-//        Test1.routeName: (context) => Test1(),
-//      },
-      home: new _Home(),
-    );
-  }
-}
-
-class _Home extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return new Scaffold(
-        appBar: new AppBar(
-          title: new Text("主页"),
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Gallery"),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -91,18 +52,17 @@ class _Home extends StatelessWidget {
                             String message = "Flutter";
                             int code = 78;
 
-                            String route = "/category/" +
-                                Test1.routeName +
-                                "?message=$message&color=$code";
-
                             //第三方路由
+//                        String route = "/category/" +
+//                            Test1.routeName +
+//                            "?message=$message&color=$code";
 //                            Application.router.navigateTo(context, route);
 
-                            //命名路由
+                            //命名路由，需要注册
 //                            Navigator.pushNamed(context, Test1.routeName);
-                            //命名路由传自定义参数
-                            Navigator.pushNamed(context, Test1.routeName,
-                                arguments: StoryModel(1, "flutter"));
+                            //命名路由传自定义参数，需要注册
+//                        Navigator.pushNamed(context, Test1.routeName,
+//                            arguments: StoryModel(1, "flutter"));
 
                             //构建路由，可以传自定义参数
 //                            Navigator.push(context, new MaterialPageRoute(
@@ -110,7 +70,7 @@ class _Home extends StatelessWidget {
 //                              return new Test1();
 //                            }));
 
-//                            _onNavigator(context, Test1.routeName);
+                            _onNavigator(context, new Test1());
                           }))
                 ],
               ),
@@ -128,136 +88,133 @@ class _Home extends StatelessWidget {
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-//                Navigator.pushNamed(context, Test2.routeName);
-                    _onNavigator(context, Test3.routeName);
+                    _onNavigator(context, new Test3());
                   }),
               new FlatButton(
                   child: new Text("Test4"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-//                Navigator.pushNamed(context, Test2.routeName);
-                    _onNavigator(context, Test4.routeName);
+                    _onNavigator(context, new Test4());
                   }),
               new FlatButton(
                   child: new Text("Test5"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-//                Navigator.pushNamed(context, Test2.routeName);
-                    _onNavigator(context, ParentWidget.routeName);
+                    _onNavigator(context, new ParentWidget());
                   }),
               new FlatButton(
                   child: new Text("TextWidget"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, TextWidget.routeName);
+                    _onNavigator(context, new TextWidget());
                   }),
               new FlatButton(
                   child: new Text("ButtonWidget"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, ButtonWidget.routeName);
+                    _onNavigator(context, new ButtonWidget());
                   }),
               new FlatButton(
                   child: new Text("ImageWidget"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, ImageWidget.routeName);
+                    _onNavigator(context, new ImageWidget());
                   }),
               new FlatButton(
                   child: new Text("SwitchAndCheckBoxTestRoute"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, SwitchAndCheckBoxTestRoute.routeName);
+                    _onNavigator(context, new SwitchAndCheckBoxTestRoute());
                   }),
               new FlatButton(
                   child: new Text("TextFieldWidget"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, TextFieldWidget.routeName);
+                    _onNavigator(context, new TextFieldWidget());
                   }),
               new FlatButton(
                   child: new Text("RowLayout"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, RowLayout.routeName);
+                    _onNavigator(context, new RowLayout());
                   }),
               new FlatButton(
                   child: new Text("FlexLayoutTestRoute"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, FlexLayoutTestRoute.routeName);
+                    _onNavigator(context, new FlexLayoutTestRoute());
                   }),
               new FlatButton(
                   child: new Text("WrapLayout"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, WrapLayout.routeName);
+                    _onNavigator(context, new WrapLayout());
                   }),
               new FlatButton(
                   child: new Text("StackLayout"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, StackLayout.routeName);
+                    _onNavigator(context, new StackLayout());
                   }),
               new FlatButton(
                   child: new Text("PaddingTestRoute"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, PaddingTestRoute.routeName);
+                    _onNavigator(context, new PaddingTestRoute());
                   }),
               new FlatButton(
                   child: new Text("ConstrainedBoxAndSizedBox"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, ConstrainedBoxAndSizedBox.routeName);
+                    _onNavigator(context, new ConstrainedBoxAndSizedBox());
                   }),
               new FlatButton(
                   child: new Text("TransformWidget"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, TransformWidget.routeName);
+                    _onNavigator(context, new TransformWidget());
                   }),
               new FlatButton(
                   child: new Text("ContainerWidget"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, ContainerWidget.routeName);
+                    _onNavigator(context, new ContainerWidget());
                   }),
               new FlatButton(
                   child: new Text("ScaffoldRoute"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, ScaffoldRoute.routeName);
+                    _onNavigator(context, new ScaffoldRoute());
                   }),
               new FlatButton(
                   child: new Text("ListViewRoute"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, ListViewRoute.routeName);
+                    _onNavigator(context, new ListViewRoute());
                   }),
               new FlatButton(
                   child: new Text("ListViewRoute1"),
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    _onNavigator(context, ListViewRoute1.routeName);
+                    _onNavigator(context, new ListViewRoute1());
                   }),
             ],
           ),
@@ -265,11 +222,10 @@ class _Home extends StatelessWidget {
   }
 }
 
-void _onNavigator(BuildContext context, String routeName) {
-  Timeline.instantSync('Start Transition', arguments: <String, String>{
-    'from': '/',
-    'to': routeName,
-  });
-  Navigator.pushNamed(context, routeName);
+void _onNavigator(BuildContext context, var route) {
 //  Application.router.navigateTo(context, '/category$routeName');
+
+  Navigator.push(context, new MaterialPageRoute(builder: (context) {
+    return route;
+  }));
 }

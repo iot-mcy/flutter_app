@@ -1,9 +1,8 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/views/web_page/web_view_page.dart';
-
-import '../Test2.dart';
-import '../test1.dart';
+import 'package:flutter_app/widget/Test2.dart';
+import 'package:flutter_app/widget/test1.dart';
 
 var categoryHandler = new Handler(
     handlerFunc: (BuildContext context, Map<String, dynamic> params) {

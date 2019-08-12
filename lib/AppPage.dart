@@ -13,6 +13,8 @@ import 'package:flutter_app/views/person/person.dart';
 import 'package:flutter_app/views/video/video.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import 'gallery_app.dart';
+
 /// 作者 mcy
 /// 时间 2019/6/20 14:23
 ///
@@ -21,7 +23,8 @@ const int ThemeColor = 0xFFC91B3A;
 
 class AppPage extends StatelessWidget {
   AppPage() {
-    if (Platform.isAndroid) {///是Android系统的设置状态栏未透明的
+    if (Platform.isAndroid) {
+      ///是Android系统的设置状态栏未透明的
       SystemUiOverlayStyle systemUiOverlayStyle =
           SystemUiOverlayStyle(statusBarColor: Colors.transparent);
       SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
@@ -38,14 +41,13 @@ class AppPage extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
 //        primarySwatch: Colors.red,
-        primaryColor: Color(ThemeColor),
-        backgroundColor: Colors.grey[100],
-        accentColor: Colors.grey[600],
+          primaryColor: Color(ThemeColor),
+          backgroundColor: Colors.grey[100],
+          accentColor: Colors.grey[600],
 //        textTheme: TextTheme(
 //          body1: TextStyle(color: Color(0xFF888888),fontSize: 16.0)
 //        ),
-        iconTheme: IconThemeData(color: Color(ThemeColor))
-      ),
+          iconTheme: IconThemeData(color: Color(ThemeColor))),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Application.router.generator,
       home: HomePage(),
@@ -76,6 +78,7 @@ class _HomePageState extends State<HomePage> {
   var pages = <Widget>[
     Home(),
     Video(),
+    GalleryApp(),
     Person(),
   ];
 
@@ -103,6 +106,8 @@ class _HomePageState extends State<HomePage> {
                   icon: Icon(Icons.home), title: Text("首页")),
               BottomNavigationBarItem(
                   icon: Icon(Icons.ondemand_video), title: Text("视频")),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.apps), title: Text("Widget")),
               BottomNavigationBarItem(
                   icon: Icon(Icons.account_box), title: Text("我的")),
             ],

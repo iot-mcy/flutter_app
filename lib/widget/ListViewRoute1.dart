@@ -44,7 +44,7 @@ Future<Map> getIndexListData([Map<String, dynamic> params]) async {
       index < (pageIndex == 0 ? 7 : 10);
       index++) {
     ItemData itemData = new ItemData('title$index', 'subtitle $index',
-        'author $index', 'publishDate $index', 'readDuration $index');
+        'author $index', 'publishDate $index', index);
     resultList.add(itemData);
   }
 

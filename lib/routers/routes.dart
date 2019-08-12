@@ -1,7 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter_app/routers/router_handler.dart';
-
-import '../Test2.dart';
+import 'package:flutter_app/widget/Test2.dart';
 
 class Routes {
   static String webViewPage = '/web-view-page';
