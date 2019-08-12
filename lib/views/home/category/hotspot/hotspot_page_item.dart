@@ -21,8 +21,7 @@ class HotspotPageItem extends StatelessWidget {
         //构建路由，可以传自定义参数
         Navigator.push(context, new MaterialPageRoute(builder: (context) {
           return new WebViewPage(
-              'https://www.toutiao.com/a${Uri.encodeComponent(data.item_id)}',
-              data.title);
+              'https://www.toutiao.com/a${data.item_id}', data.title);
         }));
       },
       child: Padding(
@@ -34,7 +33,9 @@ class HotspotPageItem extends StatelessWidget {
                   Row(
                     children: <Widget>[
                       Image.network(
-                        isNotEmpty(data.middle_image) ? data.middle_image : "",
+                        isNotEmpty(data.image_url)
+                            ? 'https:${data.image_url}'
+                            : "",
                         width: 108.0,
                         height: 88.0,
                       ),

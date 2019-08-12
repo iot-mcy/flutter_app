@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// 作者 mcy
+/// 时间 2019/8/12 14:20
+/// 短视频列表的item
 class ItemVideo extends StatelessWidget {
   String title;
   int playCount;

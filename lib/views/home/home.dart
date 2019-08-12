@@ -3,6 +3,7 @@ import 'package:flutter_app/components/search_input.dart';
 import 'category/attention/attention_page.dart';
 
 import 'category/hotspot/hotspot_page.dart';
+import 'category/other/other_page.dart';
 import 'category/recommend/recommend_page.dart';
 import 'category/science_technology/science_technology.dart';
 
@@ -37,10 +38,10 @@ class _homeState extends State with SingleTickerProviderStateMixin {
     RecommendPage(),
     HotspotPage(),
     ScienceTechnology(),
-    ScienceTechnology(),
-    ScienceTechnology(),
-    ScienceTechnology(),
-    ScienceTechnology(),
+    OtherPage("娱乐"),
+    OtherPage("游戏"),
+    OtherPage("体育"),
+    OtherPage("汽车"),
   ];
   var tabTitleList = <Widget>[
     Text("关注"),

@@ -3,7 +3,7 @@
 /// 新闻列表item数据
 class HotspotPageItemData {
   String title;
-  String middle_image = "";
+  String image_url = "";
   String media_avatar_url;
   String source;
   int comments_count;
@@ -12,7 +12,7 @@ class HotspotPageItemData {
 
   HotspotPageItemData(
       {this.title,
-      this.middle_image,
+      this.image_url,
       this.media_avatar_url,
       this.source,
       this.comments_count,
@@ -22,7 +22,7 @@ class HotspotPageItemData {
   factory HotspotPageItemData.fromJson(var entity) {
     return HotspotPageItemData(
       title: entity['title'],
-      middle_image: entity['middle_image'],
+        image_url: entity['image_url'],
       source: entity['source'],
       media_avatar_url: entity['media_avatar_url'],
       comments_count: entity['comments_count'],
