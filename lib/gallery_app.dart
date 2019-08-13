@@ -14,6 +14,10 @@ import 'package:flutter_app/widget/TextWidget.dart';
 import 'package:flutter_app/widget/TransformWidget.dart';
 import 'package:flutter_app/widget/WrapLayout.dart';
 
+import 'demo/image_picker.dart';
+import 'demo/multi_image_picker.dart';
+import 'demo/path_provider.dart';
+import 'demo/url_launcher.dart';
 import 'widget/PaddingTestRoute.dart';
 import 'widget/RowLayout.dart';
 import 'widget/ScaffoldRoute.dart';
@@ -215,6 +219,34 @@ class GalleryApp extends StatelessWidget {
                   textColor: Colors.white,
                   onPressed: () {
                     _onNavigator(context, new ListViewRoute1());
+                  }),
+              new FlatButton(
+                  child: new Text("url_launcher的使用"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new UrlLauncher());
+                  }),
+              new FlatButton(
+                  child: new Text("path_provider的使用"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new PathProvider());
+                  }),
+              new FlatButton(
+                  child: new Text("image_picker的使用"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new ImagePickerPage());
+                  }),
+              new FlatButton(
+                  child: new Text("multi_image_picker的使用"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new MultiImagePickerPage());
                   }),
             ],
           ),

@@ -27,7 +27,11 @@ dependencies:
   dio: 2.1.13
   flutter_webview_plugin: ^0.3.5
   flutter_easyrefresh: ^2.0.2
-  flutter_swiper: ^1.1.6
+  flutter_swiper: ^1.1.6 #
+  url_launcher: ^5.1.2 #支持打开网络，电话，短信和电子邮件。
+  path_provider: ^1.2.0 #文件读写
+  image_picker: ^0.6.1+2
+#  multi_image_picker: ^4.4.1
   #Fluro is a Flutter routing library that adds flexible routing options like wildcards,
   #named parameters and clear route definitions.
   fluro: "^1.4.0"
