@@ -71,6 +71,16 @@ class _HomePageState extends State<HomePage> {
     if (mounted) {
       setState(() {
         _currentIndex = index;
+        if (index == 3) {
+          //当点到“我的”tab时需要改变状态的颜色
+          SystemUiOverlayStyle systemUiOverlayStyle =
+              SystemUiOverlayStyle(statusBarColor: Colors.white);
+          SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+        } else {
+          SystemUiOverlayStyle systemUiOverlayStyle =
+              SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+          SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+        }
       });
     }
   }
