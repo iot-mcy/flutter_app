@@ -14,9 +14,13 @@ import 'package:flutter_app/widget/TextWidget.dart';
 import 'package:flutter_app/widget/TransformWidget.dart';
 import 'package:flutter_app/widget/WrapLayout.dart';
 
+import 'demo/cached_network_image_page.dart';
+import 'demo/device_info_page.dart';
 import 'demo/image_picker.dart';
 import 'demo/multi_image_picker.dart';
+import 'demo/package_info_page.dart';
 import 'demo/path_provider.dart';
+import 'demo/photo_view_page.dart';
 import 'demo/url_launcher.dart';
 import 'widget/PaddingTestRoute.dart';
 import 'widget/RowLayout.dart';
@@ -247,6 +251,34 @@ class GalleryApp extends StatelessWidget {
                   textColor: Colors.white,
                   onPressed: () {
                     _onNavigator(context, new MultiImagePickerPage());
+                  }),
+              new FlatButton(
+                  child: new Text("cached_network_image的使用"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new CachedNetworkImagePage());
+                  }),
+              new FlatButton(
+                  child: new Text("package_info的使用"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new PackageInfoPage());
+                  }),
+              new FlatButton(
+                  child: new Text("device_info的使用"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new DeviceInfoPage());
+                  }),
+              new FlatButton(
+                  child: new Text("photo_view的使用"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new PhotoViewPage());
                   }),
             ],
           ),
