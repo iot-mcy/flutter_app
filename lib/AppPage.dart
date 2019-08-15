@@ -12,6 +12,7 @@ import 'package:flutter_app/views/home/home.dart';
 import 'package:flutter_app/views/person/person.dart';
 import 'package:flutter_app/views/video/video.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'gallery_app.dart';
 
@@ -100,6 +101,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    ScreenUtil.instance = ScreenUtil.getInstance()..init(context);
+
     return WillPopScope(
         child: Scaffold(
 //          appBar: AppBar(

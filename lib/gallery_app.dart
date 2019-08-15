@@ -14,13 +14,20 @@ import 'package:flutter_app/widget/TextWidget.dart';
 import 'package:flutter_app/widget/TransformWidget.dart';
 import 'package:flutter_app/widget/WrapLayout.dart';
 
+import 'demo/barcode_scan_page.dart';
 import 'demo/cached_network_image_page.dart';
+import 'demo/camera_page.dart';
 import 'demo/device_info_page.dart';
+import 'demo/gallery_example.dart';
+import 'demo/image_cropper_page.dart';
 import 'demo/image_picker.dart';
 import 'demo/multi_image_picker.dart';
 import 'demo/package_info_page.dart';
 import 'demo/path_provider.dart';
+import 'demo/percent_indicator_page.dart';
 import 'demo/photo_view_page.dart';
+import 'demo/qr_flutter_page.dart';
+import 'demo/shared_preferences_page.dart';
 import 'demo/url_launcher.dart';
 import 'widget/PaddingTestRoute.dart';
 import 'widget/RowLayout.dart';
@@ -279,6 +286,55 @@ class GalleryApp extends StatelessWidget {
                   textColor: Colors.white,
                   onPressed: () {
                     _onNavigator(context, new PhotoViewPage());
+                  }),
+              new FlatButton(
+                  child: new Text("GalleryExample"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new GalleryExample());
+                  }),
+              new FlatButton(
+                  child: new Text("barcode_scan的使用"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new BarcodeScanPage());
+                  }),
+              new FlatButton(
+                  child: new Text("qr_flutter的使用"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new QrFlutterPage());
+                  }),
+              new FlatButton(
+                  child: new Text("图片裁剪"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new ImageCropperPage());
+                  }),
+              new FlatButton(
+                  child: new Text("进度条"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new PercentIndicatorPage());
+                  }),
+              new FlatButton(
+                  child: new Text("shared_preferences"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new SharedPreferencesPage());
+                  }),
+              new FlatButton(
+                  child: new Text("相机的使用"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new CameraPage());
                   }),
             ],
           ),
