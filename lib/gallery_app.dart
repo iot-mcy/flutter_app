@@ -14,10 +14,14 @@ import 'package:flutter_app/widget/TextWidget.dart';
 import 'package:flutter_app/widget/TransformWidget.dart';
 import 'package:flutter_app/widget/WrapLayout.dart';
 
+import 'demo/azlistview_page.dart';
 import 'demo/barcode_scan_page.dart';
 import 'demo/cached_network_image_page.dart';
 import 'demo/camera_page.dart';
 import 'demo/device_info_page.dart';
+import 'demo/fancy_bottom_navigation_page.dart';
+import 'demo/flutter_spinkit_page.dart';
+import 'demo/flutter_svg_page.dart';
 import 'demo/gallery_example.dart';
 import 'demo/image_cropper_page.dart';
 import 'demo/image_picker.dart';
@@ -27,6 +31,7 @@ import 'demo/path_provider.dart';
 import 'demo/percent_indicator_page.dart';
 import 'demo/photo_view_page.dart';
 import 'demo/qr_flutter_page.dart';
+import 'demo/sensors_page.dart';
 import 'demo/shared_preferences_page.dart';
 import 'demo/url_launcher.dart';
 import 'widget/PaddingTestRoute.dart';
@@ -335,6 +340,41 @@ class GalleryApp extends StatelessWidget {
                   textColor: Colors.white,
                   onPressed: () {
                     _onNavigator(context, new CameraPage());
+                  }),
+              new FlatButton(
+                  child: new Text("加载SVG图片"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new FlutterSvgPage());
+                  }),
+              new FlatButton(
+                  child: new Text("flutter_spinkit"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new FlutterSpinKitPage());
+                  }),
+              new FlatButton(
+                  child: new Text("azlistview"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new AzListViewPage());
+                  }),
+              new FlatButton(
+                  child: new Text("fancy_bottom_navigation"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new FancyBottomNavigationPage());
+                  }),
+              new FlatButton(
+                  child: new Text("Sensors"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new SensorsPage());
                   }),
             ],
           ),

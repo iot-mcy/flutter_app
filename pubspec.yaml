@@ -43,9 +43,15 @@ dependencies:
   percent_indicator: ^2.1.1 #进度条
   shared_preferences: ^0.5.3+4 #数据缓存
   camera: ^0.5.3+1 #相机
+  flutter_svg: ^0.14.0 #加载SVG图片
+  flutter_spinkit: "^3.1.0" #用于各种加载中的样式
+  lpinyin: ^1.0.7 #汉字转拼音
+  azlistview: ^0.1.2
+  fancy_bottom_navigation: ^0.3.2
+  sensors: ^0.4.0+1
   #Fluro is a Flutter routing library that adds flexible routing options like wildcards,
   #named parameters and clear route definitions.
-  fluro: "^1.4.0"
+  fluro: "^1.4.0" #路由
 
 dev_dependencies:
   flutter_test:
@@ -97,3 +103,5 @@ flutter:
   assets:
     - assets/images/image01.png
     - assets/images/image02.png
+    - assets/images/ic_account.svg
+    - assets/data/china.json
