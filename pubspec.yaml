@@ -31,7 +31,7 @@ dependencies:
   url_launcher: ^5.1.2 #支持打开网络，电话，短信和电子邮件。
   path_provider: ^1.2.0 #文件读写
   image_picker: ^0.6.1+2 #调系统相册选图
-  multi_image_picker: ^4.5.0 #多图选择
+  #multi_image_picker: ^4.5.0 #多图选择
   cached_network_image: ^1.1.1 #图片加载缓存
   package_info: ^0.4.0+6 #用于获取应用程序的信息
   device_info: ^0.4.0+2 #用于获取手机设备的信息
