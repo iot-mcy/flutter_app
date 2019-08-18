@@ -50,6 +50,14 @@ class _SensorsPageState extends State<SensorsPage> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    for (StreamSubscription<dynamic> subscription in _streamSubscriptions) {
+      subscription.cancel();
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final List<String> accelerometer =
         _accelerometerValues?.map((double v) => v.toStringAsFixed(1))?.toList();

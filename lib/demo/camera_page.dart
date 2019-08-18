@@ -55,7 +55,7 @@ class _CameraPageState extends State<CameraPage> {
         ),
         body: Column(
           children: <Widget>[
-            AspectRatio(
+        controller==null ? Container() : AspectRatio(
                 aspectRatio: controller.value.aspectRatio,
                 child: CameraPreview(controller)),
             OutlineButton(

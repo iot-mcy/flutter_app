@@ -18,6 +18,7 @@ import 'demo/azlistview_page.dart';
 import 'demo/barcode_scan_page.dart';
 import 'demo/cached_network_image_page.dart';
 import 'demo/camera_page.dart';
+import 'demo/connectivity_page.dart';
 import 'demo/device_info_page.dart';
 import 'demo/fancy_bottom_navigation_page.dart';
 import 'demo/flutter_spinkit_page.dart';
@@ -34,6 +35,7 @@ import 'demo/qr_flutter_page.dart';
 import 'demo/sensors_page.dart';
 import 'demo/shared_preferences_page.dart';
 import 'demo/url_launcher.dart';
+import 'demo/video_player_page.dart';
 import 'widget/PaddingTestRoute.dart';
 import 'widget/RowLayout.dart';
 import 'widget/ScaffoldRoute.dart';
@@ -375,6 +377,20 @@ class GalleryApp extends StatelessWidget {
                   textColor: Colors.white,
                   onPressed: () {
                     _onNavigator(context, new SensorsPage());
+                  }),
+              new FlatButton(
+                  child: new Text("网络连接"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new ConnectivityPage());
+                  }),
+              new FlatButton(
+                  child: new Text("视频播放"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new VideoPlayerPage());
                   }),
             ],
           ),
