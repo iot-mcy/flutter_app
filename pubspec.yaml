@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   fluttertoast: ^3.1.0 #toast
   dio: 2.1.13 #网络请求
+  http: ^0.12.0
   flutter_webview_plugin: ^0.3.5 #Webview
   flutter_easyrefresh: ^2.0.2 #列表下拉刷新和上拉加载更多
   flutter_swiper: ^1.1.6 #banner
@@ -51,6 +52,8 @@ dependencies:
   sensors: ^0.4.0+1
   connectivity: ^0.4.3+1 #检查网络连接状态
   video_player: ^0.10.1+6
+  flutter_local_notifications: ^0.8.1+1
+
   #Fluro is a Flutter routing library that adds flexible routing options like wildcards,
   #named parameters and clear route definitions.
   fluro: "^1.4.0" #路由

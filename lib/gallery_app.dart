@@ -26,6 +26,7 @@ import 'demo/flutter_svg_page.dart';
 import 'demo/gallery_example.dart';
 import 'demo/image_cropper_page.dart';
 import 'demo/image_picker.dart';
+import 'demo/local_notifications_page.dart';
 import 'demo/multi_image_picker.dart';
 import 'demo/package_info_page.dart';
 import 'demo/path_provider.dart';
@@ -391,6 +392,13 @@ class GalleryApp extends StatelessWidget {
                   textColor: Colors.white,
                   onPressed: () {
                     _onNavigator(context, new VideoPlayerPage());
+                  }),
+              new FlatButton(
+                  child: new Text("通知栏通知"),
+                  color: Colors.blue,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    _onNavigator(context, new LocalNotificationsPage());
                   }),
             ],
           ),
