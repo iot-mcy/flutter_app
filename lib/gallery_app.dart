@@ -13,6 +13,7 @@ import 'package:flutter_app/widget/TextFieldWidget.dart';
 import 'package:flutter_app/widget/TextWidget.dart';
 import 'package:flutter_app/widget/TransformWidget.dart';
 import 'package:flutter_app/widget/WrapLayout.dart';
+import 'package:flutter_app/widget/bottom_sheet.dart';
 
 import 'demo/azlistview_page.dart';
 import 'demo/barcode_scan_page.dart';
@@ -20,6 +21,7 @@ import 'demo/cached_network_image_page.dart';
 import 'demo/camera_page.dart';
 import 'demo/connectivity_page.dart';
 import 'demo/device_info_page.dart';
+import 'demo/dialog_demo.dart';
 import 'demo/fancy_bottom_navigation_page.dart';
 import 'demo/flutter_spinkit_page.dart';
 import 'demo/flutter_svg_page.dart';
@@ -44,6 +46,7 @@ import 'widget/Test2.dart';
 import 'widget/Test3.dart';
 import 'widget/Test4.dart';
 import 'widget/Test5.dart';
+import 'widget/chip_page.dart';
 import 'widget/test1.dart';
 
 /// 作者 mcy
@@ -57,351 +60,362 @@ class GalleryApp extends StatelessWidget {
         appBar: AppBar(
           title: Text("Gallery"),
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            verticalDirection: VerticalDirection.down,
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Expanded(
-                      child: new FlatButton(
-                          child: new Text("Test1"),
-                          color: Colors.blue,
-                          textColor: Colors.white,
-                          onPressed: () {
-                            String message = "Flutter";
-                            int code = 78;
+        body: ListView(
+          padding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
+          children: <Widget>[
+            new FlatButton(
+                child: new Text("Test1"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  String message = "Flutter";
+                  int code = 78;
 
-                            //第三方路由
+                  //第三方路由
 //                        String route = "/category/" +
 //                            Test1.routeName +
 //                            "?message=$message&color=$code";
 //                            Application.router.navigateTo(context, route);
 
-                            //命名路由，需要注册
+                  //命名路由，需要注册
 //                            Navigator.pushNamed(context, Test1.routeName);
-                            //命名路由传自定义参数，需要注册
+                  //命名路由传自定义参数，需要注册
 //                        Navigator.pushNamed(context, Test1.routeName,
 //                            arguments: StoryModel(1, "flutter"));
 
-                            //构建路由，可以传自定义参数
+                  //构建路由，可以传自定义参数
 //                            Navigator.push(context, new MaterialPageRoute(
 //                                builder: (context) {
 //                              return new Test1();
 //                            }));
 
-                            _onNavigator(context, new Test1());
-                          }))
-                ],
-              ),
-              new FlatButton(
-                  child: new Text("Test2"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    String message = "Flutter";
-                    Application.router.navigateTo(
-                        context, Test2.routeName + "?message=$message");
-                  }),
-              new FlatButton(
-                  child: new Text("Test3"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new Test3());
-                  }),
-              new FlatButton(
-                  child: new Text("Test4"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new Test4());
-                  }),
-              new FlatButton(
-                  child: new Text("Test5"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new ParentWidget());
-                  }),
-              new FlatButton(
-                  child: new Text("TextWidget"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new TextWidget());
-                  }),
-              new FlatButton(
-                  child: new Text("ButtonWidget"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new ButtonWidget());
-                  }),
-              new FlatButton(
-                  child: new Text("ImageWidget"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new ImageWidget());
-                  }),
-              new FlatButton(
-                  child: new Text("SwitchAndCheckBoxTestRoute"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new SwitchAndCheckBoxTestRoute());
-                  }),
-              new FlatButton(
-                  child: new Text("TextFieldWidget"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new TextFieldWidget());
-                  }),
-              new FlatButton(
-                  child: new Text("RowLayout"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new RowLayout());
-                  }),
-              new FlatButton(
-                  child: new Text("FlexLayoutTestRoute"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new FlexLayoutTestRoute());
-                  }),
-              new FlatButton(
-                  child: new Text("WrapLayout"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new WrapLayout());
-                  }),
-              new FlatButton(
-                  child: new Text("StackLayout"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new StackLayout());
-                  }),
-              new FlatButton(
-                  child: new Text("PaddingTestRoute"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new PaddingTestRoute());
-                  }),
-              new FlatButton(
-                  child: new Text("ConstrainedBoxAndSizedBox"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new ConstrainedBoxAndSizedBox());
-                  }),
-              new FlatButton(
-                  child: new Text("TransformWidget"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new TransformWidget());
-                  }),
-              new FlatButton(
-                  child: new Text("ContainerWidget"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new ContainerWidget());
-                  }),
-              new FlatButton(
-                  child: new Text("ScaffoldRoute"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new ScaffoldRoute());
-                  }),
-              new FlatButton(
-                  child: new Text("ListViewRoute"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new ListViewRoute());
-                  }),
-              new FlatButton(
-                  child: new Text("ListViewRoute1"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new ListViewRoute1());
-                  }),
-              new FlatButton(
-                  child: new Text("url_launcher的使用"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new UrlLauncher());
-                  }),
-              new FlatButton(
-                  child: new Text("path_provider的使用"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new PathProvider());
-                  }),
-              new FlatButton(
-                  child: new Text("image_picker的使用"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new ImagePickerPage());
-                  }),
-              new FlatButton(
-                  child: new Text("multi_image_picker的使用"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new MultiImagePickerPage());
-                  }),
-              new FlatButton(
-                  child: new Text("cached_network_image的使用"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new CachedNetworkImagePage());
-                  }),
-              new FlatButton(
-                  child: new Text("package_info的使用"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new PackageInfoPage());
-                  }),
-              new FlatButton(
-                  child: new Text("device_info的使用"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new DeviceInfoPage());
-                  }),
-              new FlatButton(
-                  child: new Text("photo_view的使用"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new PhotoViewPage());
-                  }),
-              new FlatButton(
-                  child: new Text("GalleryExample"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new GalleryExample());
-                  }),
-              new FlatButton(
-                  child: new Text("barcode_scan的使用"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new BarcodeScanPage());
-                  }),
-              new FlatButton(
-                  child: new Text("qr_flutter的使用"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new QrFlutterPage());
-                  }),
-              new FlatButton(
-                  child: new Text("图片裁剪"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new ImageCropperPage());
-                  }),
-              new FlatButton(
-                  child: new Text("进度条"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new PercentIndicatorPage());
-                  }),
-              new FlatButton(
-                  child: new Text("shared_preferences"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new SharedPreferencesPage());
-                  }),
-              new FlatButton(
-                  child: new Text("相机的使用"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new CameraPage());
-                  }),
-              new FlatButton(
-                  child: new Text("加载SVG图片"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new FlutterSvgPage());
-                  }),
-              new FlatButton(
-                  child: new Text("flutter_spinkit"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new FlutterSpinKitPage());
-                  }),
-              new FlatButton(
-                  child: new Text("azlistview"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new AzListViewPage());
-                  }),
-              new FlatButton(
-                  child: new Text("fancy_bottom_navigation"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new FancyBottomNavigationPage());
-                  }),
-              new FlatButton(
-                  child: new Text("Sensors"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new SensorsPage());
-                  }),
-              new FlatButton(
-                  child: new Text("网络连接"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new ConnectivityPage());
-                  }),
-              new FlatButton(
-                  child: new Text("视频播放"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new VideoPlayerPage());
-                  }),
-              new FlatButton(
-                  child: new Text("通知栏通知"),
-                  color: Colors.blue,
-                  textColor: Colors.white,
-                  onPressed: () {
-                    _onNavigator(context, new LocalNotificationsPage());
-                  }),
-            ],
-          ),
+                  _onNavigator(context, new Test1());
+                }),
+            new FlatButton(
+                child: new Text("Test2"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  String message = "Flutter";
+                  Application.router.navigateTo(
+                      context, Test2.routeName + "?message=$message");
+                }),
+            new FlatButton(
+                child: new Text("Test3"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new Test3());
+                }),
+            new FlatButton(
+                child: new Text("Test4"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new Test4());
+                }),
+            new FlatButton(
+                child: new Text("Test5"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new ParentWidget());
+                }),
+            new FlatButton(
+                child: new Text("TextWidget"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new TextWidget());
+                }),
+            new FlatButton(
+                child: new Text("ButtonWidget"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new ButtonWidget());
+                }),
+            new FlatButton(
+                child: new Text("ImageWidget"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new ImageWidget());
+                }),
+            new FlatButton(
+                child: new Text("SwitchAndCheckBoxTestRoute"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new SwitchAndCheckBoxTestRoute());
+                }),
+            new FlatButton(
+                child: new Text("TextFieldWidget"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new TextFieldWidget());
+                }),
+            new FlatButton(
+                child: new Text("RowLayout"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new RowLayout());
+                }),
+            new FlatButton(
+                child: new Text("FlexLayoutTestRoute"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new FlexLayoutTestRoute());
+                }),
+            new FlatButton(
+                child: new Text("WrapLayout"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new WrapLayout());
+                }),
+            new FlatButton(
+                child: new Text("StackLayout"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new StackLayout());
+                }),
+            new FlatButton(
+                child: new Text("PaddingTestRoute"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new PaddingTestRoute());
+                }),
+            new FlatButton(
+                child: new Text("ConstrainedBoxAndSizedBox"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new ConstrainedBoxAndSizedBox());
+                }),
+            new FlatButton(
+                child: new Text("TransformWidget"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new TransformWidget());
+                }),
+            new FlatButton(
+                child: new Text("ContainerWidget"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new ContainerWidget());
+                }),
+            new FlatButton(
+                child: new Text("ScaffoldRoute"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new ScaffoldRoute());
+                }),
+            new FlatButton(
+                child: new Text("ListViewRoute"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new ListViewRoute());
+                }),
+            new FlatButton(
+                child: new Text("ListViewRoute1"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new ListViewRoute1());
+                }),
+            new FlatButton(
+                child: new Text("url_launcher的使用"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new UrlLauncher());
+                }),
+            new FlatButton(
+                child: new Text("path_provider的使用"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new PathProvider());
+                }),
+            new FlatButton(
+                child: new Text("image_picker的使用"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new ImagePickerPage());
+                }),
+            new FlatButton(
+                child: new Text("multi_image_picker的使用"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new MultiImagePickerPage());
+                }),
+            new FlatButton(
+                child: new Text("cached_network_image的使用"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new CachedNetworkImagePage());
+                }),
+            new FlatButton(
+                child: new Text("package_info的使用"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new PackageInfoPage());
+                }),
+            new FlatButton(
+                child: new Text("device_info的使用"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new DeviceInfoPage());
+                }),
+            new FlatButton(
+                child: new Text("photo_view的使用"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new PhotoViewPage());
+                }),
+            new FlatButton(
+                child: new Text("GalleryExample"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new GalleryExample());
+                }),
+            new FlatButton(
+                child: new Text("barcode_scan的使用"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new BarcodeScanPage());
+                }),
+            new FlatButton(
+                child: new Text("qr_flutter的使用"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new QrFlutterPage());
+                }),
+            new FlatButton(
+                child: new Text("图片裁剪"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new ImageCropperPage());
+                }),
+            new FlatButton(
+                child: new Text("进度条"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new PercentIndicatorPage());
+                }),
+            new FlatButton(
+                child: new Text("shared_preferences"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new SharedPreferencesPage());
+                }),
+            new FlatButton(
+                child: new Text("相机的使用"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new CameraPage());
+                }),
+            new FlatButton(
+                child: new Text("加载SVG图片"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new FlutterSvgPage());
+                }),
+            new FlatButton(
+                child: new Text("flutter_spinkit"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new FlutterSpinKitPage());
+                }),
+            new FlatButton(
+                child: new Text("azlistview"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new AzListViewPage());
+                }),
+            new FlatButton(
+                child: new Text("fancy_bottom_navigation"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new FancyBottomNavigationPage());
+                }),
+            new FlatButton(
+                child: new Text("Sensors"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new SensorsPage());
+                }),
+            new FlatButton(
+                child: new Text("网络连接"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new ConnectivityPage());
+                }),
+            new FlatButton(
+                child: new Text("视频播放"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new VideoPlayerPage());
+                }),
+            new FlatButton(
+                child: new Text("通知栏通知"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new LocalNotificationsPage());
+                }),
+            new FlatButton(
+                child: new Text("Dialogs"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new DialogDemoPage());
+                }),
+            new FlatButton(
+                child: new Text("BottomSheet"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new BottomSheetPage());
+                }),
+            new FlatButton(
+                child: new Text("Chip"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new ChipPage());
+                }),
+          ],
         ));
   }
 }

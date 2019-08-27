@@ -13,7 +13,7 @@ import 'package:flutter_app/views/person/person.dart';
 import 'package:flutter_app/views/video/video.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'gallery_app.dart';
 
 /// 作者 mcy
@@ -51,6 +51,17 @@ class AppPage extends StatelessWidget {
           iconTheme: IconThemeData(color: Color(ThemeColor))),
       debugShowCheckedModeBanner: false,
       onGenerateRoute: Application.router.generator,
+      localizationsDelegates: [
+        // ... app-specific localization delegate[s] here
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      //国际化
+      supportedLocales: [
+        const Locale('zh', 'CH'), // Chinese
+        const Locale('en', 'US'), // English
+        // ... other locales the app supports
+      ],
       home: HomePage(),
     );
   }
@@ -124,7 +135,7 @@ class _HomePageState extends State<HomePage> {
               BottomNavigationBarItem(
                   icon: Icon(Icons.account_box), title: Text("我的")),
             ],
-            backgroundColor: Colors.grey[200],
+            backgroundColor: Colors.grey[100],
             selectedItemColor: Colors.red,
             unselectedItemColor: Colors.black45,
             onTap: _onItemTapped,
