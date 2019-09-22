@@ -11,6 +11,7 @@ import 'package:flutter_app/widget/StackLayout.dart';
 import 'package:flutter_app/widget/SwitchAndCheckBoxTestRoute.dart';
 import 'package:flutter_app/widget/TextFieldWidget.dart';
 import 'package:flutter_app/widget/TextWidget.dart';
+import 'package:flutter_app/widget/ToggleButtonsPage.dart';
 import 'package:flutter_app/widget/TransformWidget.dart';
 import 'package:flutter_app/widget/WrapLayout.dart';
 import 'package:flutter_app/widget/bottom_sheet.dart';
@@ -414,6 +415,13 @@ class GalleryApp extends StatelessWidget {
                 textColor: Colors.black54,
                 onPressed: () {
                   _onNavigator(context, new ChipPage());
+                }),
+            new FlatButton(
+                child: new Text("ToggleButtons"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new ToggleButtonsPage());
                 }),
           ],
         ));
