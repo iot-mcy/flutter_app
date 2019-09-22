@@ -11,7 +11,6 @@ import 'package:flutter_app/widget/StackLayout.dart';
 import 'package:flutter_app/widget/SwitchAndCheckBoxTestRoute.dart';
 import 'package:flutter_app/widget/TextFieldWidget.dart';
 import 'package:flutter_app/widget/TextWidget.dart';
-import 'package:flutter_app/widget/ToggleButtonsPage.dart';
 import 'package:flutter_app/widget/TransformWidget.dart';
 import 'package:flutter_app/widget/WrapLayout.dart';
 import 'package:flutter_app/widget/bottom_sheet.dart';
@@ -48,6 +47,8 @@ import 'widget/Test3.dart';
 import 'widget/Test4.dart';
 import 'widget/Test5.dart';
 import 'widget/chip_page.dart';
+import 'widget/page_selector_demo.dart';
+import 'widget/radio_page.dart';
 import 'widget/test1.dart';
 
 /// 作者 mcy
@@ -415,6 +416,20 @@ class GalleryApp extends StatelessWidget {
                 textColor: Colors.black54,
                 onPressed: () {
                   _onNavigator(context, new ChipPage());
+                }),
+            new FlatButton(
+                child: new Text("PageView with indicator"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new PageSelectorPage());
+                }),
+            new FlatButton(
+                child: new Text("Radio"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new RadioPage());
                 }),
             new FlatButton(
                 child: new Text("ToggleButtons"),
