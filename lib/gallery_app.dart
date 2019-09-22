@@ -46,6 +46,7 @@ import 'widget/Test2.dart';
 import 'widget/Test3.dart';
 import 'widget/Test4.dart';
 import 'widget/Test5.dart';
+import 'widget/ToggleButtonsPage.dart';
 import 'widget/chip_page.dart';
 import 'widget/page_selector_demo.dart';
 import 'widget/radio_page.dart';
