@@ -25,36 +25,36 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  fluttertoast: ^3.1.0 #toast
-  dio: 3.0.1 #网络请求
-  http: ^0.12.0
-  flutter_webview_plugin: ^0.3.5 #Webview
-  flutter_easyrefresh: ^2.0.2 #列表下拉刷新和上拉加载更多
+  fluttertoast: ^3.1.3 #toast
+  dio: 3.0.3 #网络请求
+  http: ^0.12.0+2
+  flutter_webview_plugin: ^0.3.8 #Webview
+  flutter_easyrefresh: ^2.0.4 #列表下拉刷新和上拉加载更多
   flutter_swiper: ^1.1.6 #banner
-  url_launcher: ^5.1.2 #支持打开网络，电话，短信和电子邮件。
-  path_provider: ^1.2.0 #文件读写
-  image_picker: ^0.6.1+2 #调系统相册选图
-  #multi_image_picker: ^4.5.0 #多图选择
+  url_launcher: ^5.1.4 #支持打开网络，电话，短信和电子邮件。
+  path_provider: ^1.3.0 #文件读写
+  image_picker: ^0.6.1+4 #调系统相册选图
+  multi_image_picker: ^4.5.7 #多图选择
   cached_network_image: ^1.1.1 #图片加载缓存
   package_info: ^0.4.0+6 #用于获取应用程序的信息
-  device_info: ^0.4.0+2 #用于获取手机设备的信息
-  photo_view: ^0.4.2 #图片预览
-  image_cropper: ^1.0.2 #图片裁剪
-  flutter_screenutil: ^0.5.3 #屏幕适配
+  device_info: ^0.4.0+3 #用于获取手机设备的信息
+  photo_view: ^0.5.0 #图片预览
+  image_cropper: ^1.1.0 #图片裁剪
+  flutter_screenutil: ^0.6.0 #屏幕适配
   barcode_scan: ^1.0.0 # 扫描二维码
-  qr_flutter: ^2.1.0+55 #二维码生成
+  qr_flutter: ^3.0.1 #二维码生成
   percent_indicator: ^2.1.1 #进度条
   shared_preferences: ^0.5.3+4 #数据缓存
-  camera: ^0.5.3+1 #相机
-  flutter_svg: ^0.14.0 #加载SVG图片
-  flutter_spinkit: "^3.1.0" #用于各种加载中的样式
+  camera: ^0.5.5+1 #相机
+  flutter_svg: ^0.14.1 #加载SVG图片
+  flutter_spinkit: ^4.0.0 #用于各种加载中的样式
   lpinyin: ^1.0.7 #汉字转拼音
   azlistview: ^0.1.2
   fancy_bottom_navigation: ^0.3.2
   sensors: ^0.4.0+1
-  connectivity: ^0.4.3+1 #检查网络连接状态
-  video_player: ^0.10.1+6
-  flutter_local_notifications: ^0.8.1+1
+  connectivity: ^0.4.4 #检查网络连接状态
+  video_player: ^0.10.2+1
+  flutter_local_notifications: ^0.8.4
   intl: 0.15.8 #
 
   #Fluro is a Flutter routing library that adds flexible routing options like wildcards,
