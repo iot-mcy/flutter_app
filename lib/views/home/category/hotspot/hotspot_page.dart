@@ -35,6 +35,7 @@ class _HotspotPageState extends State<HotspotPage>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       body: EasyRefresh.custom(
         controller: _controller,

@@ -34,6 +34,7 @@ class _ScienceTechnology extends State<ScienceTechnology>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       body: EasyRefresh(
         controller: _controller,

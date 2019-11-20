@@ -19,7 +19,7 @@ class AttentionPageItem extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
         child: SizedBox(
-          height: 56.0,
+          height: 72.0,
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[

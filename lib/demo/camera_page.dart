@@ -50,22 +50,25 @@ class _CameraPageState extends State<CameraPage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Camera"),
-        ),
-        body: Column(
-          children: <Widget>[
-        controller==null ? Container() : AspectRatio(
-                aspectRatio: controller.value.aspectRatio,
-                child: CameraPreview(controller)),
-            OutlineButton(
-              onPressed: () {
-                onTakePictureButtonPressed();
-              },
-              child: Text("拍照"),
-            )
-          ],
-        ));
+      appBar: AppBar(
+        title: Text("Camera"),
+      ),
+      body: Column(
+        children: <Widget>[
+          controller == null
+              ? Container()
+              : AspectRatio(
+                  aspectRatio: controller.value.aspectRatio,
+                  child: CameraPreview(controller)),
+          OutlineButton(
+            onPressed: () {
+              onTakePictureButtonPressed();
+            },
+            child: Text("拍照"),
+          )
+        ],
+      ),
+    );
   }
 
   void onTakePictureButtonPressed() {
@@ -84,11 +87,7 @@ class _CameraPageState extends State<CameraPage> {
     });
   }
 
-  String timestamp() =>
-      DateTime
-          .now()
-          .millisecondsSinceEpoch
-          .toString();
+  String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
 
   Future<String> takePicture() async {
     if (!controller.value.isInitialized) {

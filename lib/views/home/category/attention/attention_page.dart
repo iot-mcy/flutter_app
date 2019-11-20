@@ -18,7 +18,7 @@ class _AttentionPageState extends State<AttentionPage>
     with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
+    super.build(context);
     return Scaffold(
       body: listComp.ListRefresh(
           getIndexListData, getItemWidget, null, true),

@@ -11,9 +11,10 @@ import 'package:flutter_app/routers/routes.dart';
 import 'package:flutter_app/views/home/home.dart';
 import 'package:flutter_app/views/person/person.dart';
 import 'package:flutter_app/views/video/video.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
 import 'gallery_app.dart';
 
 /// 作者 mcy
