@@ -55,7 +55,9 @@ dependencies:
   connectivity: ^0.4.4 #检查网络连接状态
   video_player: ^0.10.2+1
   flutter_local_notifications: ^0.8.4
-  intl: 0.15.8 #
+  intl: 0.15.8 #日期格式化
+  flutter_html: ^0.11.0 #可以加载html标签的富文本
+  event_bus: ^1.1.0
 
   #Fluro is a Flutter routing library that adds flexible routing options like wildcards,
   #named parameters and clear route definitions.

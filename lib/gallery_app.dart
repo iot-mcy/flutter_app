@@ -14,6 +14,8 @@ import 'package:flutter_app/widget/TextWidget.dart';
 import 'package:flutter_app/widget/TransformWidget.dart';
 import 'package:flutter_app/widget/WrapLayout.dart';
 import 'package:flutter_app/widget/bottom_sheet.dart';
+import 'package:flutter_app/widget/event_bus_page.dart';
+import 'package:flutter_app/widget/flutter_html_page.dart';
 
 import 'demo/azlistview_page.dart';
 import 'demo/barcode_scan_page.dart';
@@ -438,6 +440,20 @@ class GalleryApp extends StatelessWidget {
                 textColor: Colors.black54,
                 onPressed: () {
                   _onNavigator(context, new ToggleButtonsPage());
+                }),
+            new FlatButton(
+                child: new Text("Flutter Html"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new FlutterHtmlPage());
+                }),
+            new FlatButton(
+                child: new Text("EventBus"),
+                color: Colors.grey[200],
+                textColor: Colors.black54,
+                onPressed: () {
+                  _onNavigator(context, new EventBusPage());
                 }),
           ],
         ));
