@@ -54,6 +54,7 @@ class AppPage extends StatelessWidget {
       onGenerateRoute: Application.router.generator,
       localizationsDelegates: [
         // ... app-specific localization delegate[s] here
+        GlobalCupertinoLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
